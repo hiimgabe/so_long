@@ -6,11 +6,11 @@
 /*   By: gamoreir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 21:17:56 by gamoreir          #+#    #+#             */
-/*   Updated: 2023/04/14 14:31:47 by gamoreir         ###   ########.fr       */
+/*   Updated: 2023/05/26 10:33:18 by gamoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 char	*ft_substr(char const *str, unsigned int start, size_t len)
 {

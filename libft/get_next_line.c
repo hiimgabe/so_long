@@ -6,11 +6,11 @@
 /*   By: gamoreir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 21:17:56 by gamoreir          #+#    #+#             */
-/*   Updated: 2023/05/17 15:30:59 by gamoreir         ###   ########.fr       */
+/*   Updated: 2023/05/26 10:33:03 by gamoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 static char	*ft_extractline(char *line)
 {

@@ -1,23 +1,50 @@
-NAME = libftprintf.a
-LIBFT = libft/libft.a
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: gamoreir <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/05/26 10:17:06 by gamoreir          #+#    #+#              #
+#    Updated: 2023/05/26 11:10:09 by gamoreir         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CFLAGS = -Wall -Wextra -Werror
-INCLUDE = .
+NAME = so_long
+
+SRC = src/main.c
+
+OBJ = ${SRC:.c=.o}
+
 CC = cc
 RM = rm -f
-AR = ar -rc
+CFLAGS = -Wall -Wextra -Werror -g
+INCLUDE = -I include
+MAKE = make -C
+LIBFT_PATH = libft
+MLX_PATH = mlx
+LIBFT = -L ${LIBFT_PATH} -lft
+MLX = -L ${MLX_PATH} -lmlx -Ilmlx -lXext -lX11 -lm
 
-OBJ = ft_printf.o ft_printf_functions.o
+.c.o:
+	${CC} ${CFLAGS} ${INCLUDE} -c $< -o ${<:.c=.o}
 
-all: $(NAME)
+$(NAME): ${OBJ}
+	${MAKE} ${LIBFT_PATH}
+	${MAKE} ${MLX_PATH}
+	${CC} ${OBJ} ${LIBFT} ${MLX} -o ${NAME}
 
-$(NAME): $(OBJ)
-	$(AR) $(NAME) $(OBJ)
+all: ${NAME}
 
 clean:
-	$(RM) $(OBJ)
+	${MAKE} ${LIBFT_PATH} clean
+	${MAKE} ${MLX_PATH} clean
+	${RM} ${OBJ}
 
 fclean: clean
-	$(RM) $(NAME)
+	${MAKE} ${LIBFT_PATH} fclean
+	${RM} ${NAME}
 
 re: fclean all
+
+.PHONY: all clean fclean re

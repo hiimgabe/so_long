@@ -6,7 +6,7 @@
 /*   By: gamoreir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 09:48:56 by gamoreir          #+#    #+#             */
-/*   Updated: 2023/05/26 11:45:52 by gamoreir         ###   ########.fr       */
+/*   Updated: 2023/05/31 16:06:28 by gamoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,43 @@ int	deal_key(int key)
 	return (0);
 }
 
-int	main()
+int	main(int argc, char **argv)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	int	i = -1;
+	t_data	data;
 
-	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, 500, 500, "so_long");
-	while (++i < 50)
-		mlx_pixel_put(mlx_ptr, win_ptr, i, i, 0xFFFFFF);
-	mlx_key_hook(win_ptr, deal_key, (void *)0);
-	mlx_loop(mlx_ptr);
+	if (argc != 2)
+	{
+		ft_printf("Wrong number of arguments.\nTry again ex: ./so_long assets/maps/map1.ber");
+		return (0);
+	}
+	ft_initdata(&data);
+	if (argc == 2)
+	{
+		data.mlx_ptr = mlx_init();
+		if (data.mlx_ptr == NULL)
+		{
+			ft_printf("%s\n", MLX_PTR_ERROR);
+			return (0);
+		}
+		ft_getsprites(&data, argv[1]);
+		mlx_loop(data.mlx_ptr);
+	}
+	return (0);
 }
+/*
+	data.mlx_ptr = mlx_init();
+	data.img.mlx_img = mlx_new_image(data.mlx_ptr, 32, 32);
+	if (data.mlx_ptr == NULL)
+		return (ft_printf("%s", MLX_PTR_ERROR));
+	data.win_ptr = mlx_new_window(data.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT, "so_long");
+	if (data.win_ptr == NULL)
+	{
+		free(data.win_ptr);
+		return (ft_printf("%s", MLX_WIN_PTR_ERROR));
+	}
+	mlx_key_hook(data.win_ptr, KeyPressMask, handle_input, &data);
+	mlx_loop(data.mlx_ptr);
+	mlx_destroy_window(data.mlx_ptr, data.win_ptr);
+	mlx_destroy_display(data.mlx_ptr);
+	free(data.mlx_ptr);
+*/

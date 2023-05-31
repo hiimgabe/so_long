@@ -6,13 +6,13 @@
 #    By: gamoreir <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/26 10:17:06 by gamoreir          #+#    #+#              #
-#    Updated: 2023/05/26 11:10:09 by gamoreir         ###   ########.fr        #
+#    Updated: 2023/05/31 15:00:03 by gamoreir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-SRC = src/main.c
+SRC = src/main.c src/map.c src/utils.c
 
 OBJ = ${SRC:.c=.o}
 

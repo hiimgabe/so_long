@@ -6,7 +6,7 @@
 /*   By: gamoreir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 21:17:56 by gamoreir          #+#    #+#             */
-/*   Updated: 2023/05/26 10:33:18 by gamoreir         ###   ########.fr       */
+/*   Updated: 2023/05/31 15:10:10 by gamoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,6 @@ char	*ft_substr(char const *str, unsigned int start, size_t len)
 		*new++ = str[start++];
 	*new = '\0';
 	return (original);
-}
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	len;
-
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
 }
 
 char	*ft_strdup(const char *str)

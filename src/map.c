@@ -6,7 +6,7 @@
 /*   By: gamoreir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:48:06 by gamoreir          #+#    #+#             */
-/*   Updated: 2023/05/31 15:59:31 by gamoreir         ###   ########.fr       */
+/*   Updated: 2023/06/01 12:17:49 by gamoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,12 @@ void	ft_fill_map(t_data *data)
 	char	*str;
 
 	i = 0;
-	while (i <= data->rows)
+	while (i < data->rows)
 	{
+		ft_printf("%d ", data->rows);
+		ft_printf("%d ", i);
 		str = get_next_line(data->fd);
+		ft_printf("%s", str);
 		if (!str)
 		{
 			free(str);
@@ -41,7 +44,11 @@ void ft_fill_window(t_data *data, int i, int j)
 		while (data->map[i][j] != '\n' && data->map[i][j] != '\0')
 		{
 			if (data->map[i][j] == '1')
+			{
+				ft_printf("\nimg j=%d map[i][j]=%c\n", j, data->map[i][j]);
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_wall, j * SIZE, i * SIZE);
+			}
+			ft_printf("TESTE");
 			j++;
 		}
 		i++;

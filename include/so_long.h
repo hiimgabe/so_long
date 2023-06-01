@@ -6,7 +6,7 @@
 /*   By: gamoreir <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 10:46:38 by gamoreir          #+#    #+#             */
-/*   Updated: 2023/05/31 15:58:10 by gamoreir         ###   ########.fr       */
+/*   Updated: 2023/06/01 12:58:02 by gamoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@
 # include <X11/X.h>
 # include <fcntl.h>
 
+# define WALL "./assets/sprites/WALL.xpm"
 # define SIZE 45
-
-# define WALL "../assets/sprites.WALL.xpm"
 
 # define MLX_PTR_ERROR "ERROR : mlx_ptr failed."
 # define MLX_WIN_PTR_ERROR "ERROR : win_ptr failed."

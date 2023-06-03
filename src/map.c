@@ -20,10 +20,7 @@ void	ft_fill_map(t_data *data)
 	i = 0;
 	while (i < data->rows)
 	{
-		ft_printf("%d ", data->rows);
-		ft_printf("%d ", i);
 		str = get_next_line(data->fd);
-		ft_printf("%s", str);
 		if (!str)
 		{
 			free(str);
@@ -38,7 +35,7 @@ void	ft_fill_map(t_data *data)
 
 void ft_fill_window(t_data *data, int i, int j)
 {
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_wall, 1088, 192);
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_background, 0, 0);
 	while (i < data->rows)
 	{
 		j = 0;
@@ -46,10 +43,12 @@ void ft_fill_window(t_data *data, int i, int j)
 		{
 			if (data->map[i][j] == '1')
 			{
-				ft_printf("\nimg j=%d map[i][j]=%c\n", j, data->map[i][j]);
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_wall, j * SIZE, i * SIZE);
 			}
-			ft_printf("TESTE");
+			else if (data->map[i][j] == 'P')
+			{
+				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_player, j * SIZE, i * SIZE);
+			}
 			j++;
 		}
 		i++;
@@ -85,5 +84,6 @@ void	ft_getsprites(t_data *data, char *mapname)
 {
 	data->img_wall = mlx_xpm_file_to_image(data->mlx_ptr, WALL, &data->x, &data->y);
 	data->img_background = mlx_xpm_file_to_image(data->mlx_ptr, BACKGROUND, &data->x, &data->y);
+	data->img_player = mlx_xpm_file_to_image(data->mlx_ptr, MC, &data->x, &data->y);
 	ft_initmap(data, mapname);
 }

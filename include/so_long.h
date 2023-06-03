@@ -21,7 +21,8 @@
 
 # define WALL "./assets/sprites/WALL.xpm"
 # define BACKGROUND "./assets/sprites/BACKGROUND.xpm"
-# define SIZE 45
+# define MC "./assets/sprites/MC.xpm"
+# define SIZE 32
 
 # define MLX_PTR_ERROR "ERROR : mlx_ptr failed."
 # define MLX_WIN_PTR_ERROR "ERROR : win_ptr failed."
@@ -33,6 +34,7 @@ typedef struct s_data
 	void	*win_ptr;
 	void	*img_background;
 	void	*img_wall;
+	void	*img_player;
 	int	x;
 	int	y;
 	int	fd;

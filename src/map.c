@@ -18,7 +18,7 @@ void	ft_fill_map(t_data *data)
 	char	*str;
 
 	i = 0;
-	while (i < data->rows)
+	while (i < data->lines)
 	{
 		str = get_next_line(data->fd);
 		if (!str)
@@ -31,11 +31,12 @@ void	ft_fill_map(t_data *data)
 		i++;
 	}
 	data->columns = ft_strlen(data->map[0]);
+	ft_playercoordinates(data);
 }
 
 void ft_fill_window(t_data *data, int i, int j)
 {
-	while (i < data->rows)
+	while (i < data->lines)
 	{
 		j = 0;
 		while (data->map[i][j] != '\n' && data->map[i][j] != '\0')
@@ -75,12 +76,12 @@ void	ft_initmap(t_data *data, char *mapname)
 	i = 0;
 	j = 0;
 	data->fd = open(mapname, O_RDONLY);
-	data->rows = ft_cntrows(data);
+	data->lines = ft_cntlines(data);
 	close(data->fd);
 	data->fd = open(mapname, O_RDONLY);
-	data->map = ft_calloc(data->rows + 1, sizeof(char *));
+	data->map = ft_calloc(data->lines + 1, sizeof(char *));
 	ft_fill_map(data);
-	data->win_ptr = mlx_new_window(data->mlx_ptr, ft_len(data->map[0]) * SIZE, data->rows * SIZE, "so_long");
+	data->win_ptr = mlx_new_window(data->mlx_ptr, ft_len(data->map[0]) * SIZE, data->lines * SIZE, "so_long");
 	if (data->win_ptr == NULL)
 	{
 		free(data->win_ptr);
@@ -95,7 +96,7 @@ void	ft_getsprites(t_data *data, char *mapname)
 {
 	data->img_wall = mlx_xpm_file_to_image(data->mlx_ptr, WALL, &data->x, &data->y);
 	data->img_floor = mlx_xpm_file_to_image(data->mlx_ptr, FLOOR, &data->x, &data->y);
-	data->img_player = mlx_xpm_file_to_image(data->mlx_ptr, TOMMY, &data->x, &data->y);
+	data->img_player = mlx_xpm_file_to_image(data->mlx_ptr, PLAYER, &data->x, &data->y);
 	data->img_coin = mlx_xpm_file_to_image(data->mlx_ptr, COIN, &data->x, &data->y);
 	data->img_enemy = mlx_xpm_file_to_image(data->mlx_ptr, ENEMY, &data->x, &data->y);
 	data->img_exit = mlx_xpm_file_to_image(data->mlx_ptr, EXIT, &data->x, &data->y);

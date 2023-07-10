@@ -21,7 +21,7 @@
 
 # define WALL "./assets/sprites/WALL.xpm"
 # define FLOOR "./assets/sprites/FLOOR.xpm"
-# define TOMMY "./assets/sprites/TOMMY.xpm"
+# define PLAYER "./assets/sprites/PLAYER.xpm"
 # define ENEMY "./assets/sprites/ENEMY.xpm"
 # define COIN "./assets/sprites/COIN.xpm"
 # define EXIT "./assets/sprites/EXIT.xpm"
@@ -35,23 +35,28 @@ typedef struct s_data
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	void	*img_background;
 	void	*img_wall;
 	void	*img_floor;
 	void	*img_coin;
 	void	*img_enemy;
 	void	*img_player;
 	void	*img_exit;
+	int	moves;
 	int	x;
 	int	y;
+	int	p_x;
+	int	p_y;
 	int	fd;
 	int	columns;
-	int	rows;
+	int	lines;
+	int	p;
+	int	c;
+	int	e;
 	char	**map;
 }	t_data;
 
 void	ft_initdata(t_data *data);
-int	ft_cntrows(t_data *data);
+int	ft_cntlines(t_data *data);
 int	ft_len(char const *str);
 
 // MAP
@@ -59,5 +64,14 @@ void	ft_getsprites(t_data *data, char *mapname);
 void	ft_initmap(t_data *data, char *mapname);
 void	ft_fill_window(t_data *data, int i, int j);
 void	ft_fill_map(t_data *data);
+
+// PLAYER
+int	handle_input(int keysym, t_data *data);
+int	ft_moveplayer(t_data *data, int y, int x, char key);
+void	ft_playercoordinates(t_data *data);
+
+//CLEAR
+void	ft_clear_map(t_data *data);
+int		ft_clear(t_data	*data);
 
 #endif

@@ -12,12 +12,6 @@
 
 #include "so_long.h"
 
-int	deal_key(int key)
-{
-	ft_putchar_fd((char)key, 1);
-	return (0);
-}
-
 int	main(int argc, char **argv)
 {
 	t_data	data;
@@ -37,6 +31,8 @@ int	main(int argc, char **argv)
 			return (0);
 		}
 		ft_getsprites(&data, argv[1]);
+		mlx_hook(data.win_ptr, KeyPress, KeyPressMask, handle_input, &data);
+		mlx_hook(data.win_ptr, DestroyNotify, ButtonPressMask, ft_clear, &data);
 		mlx_loop(data.mlx_ptr);
 	}
 	return (0);

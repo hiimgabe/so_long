@@ -20,8 +20,11 @@
 # include <fcntl.h>
 
 # define WALL "./assets/sprites/WALL.xpm"
-# define BACKGROUND "./assets/sprites/BACKGROUND.xpm"
-# define MC "./assets/sprites/MC.xpm"
+# define FLOOR "./assets/sprites/FLOOR.xpm"
+# define TOMMY "./assets/sprites/TOMMY.xpm"
+# define ENEMY "./assets/sprites/ENEMY.xpm"
+# define COIN "./assets/sprites/COIN.xpm"
+# define EXIT "./assets/sprites/EXIT.xpm"
 # define SIZE 32
 
 # define MLX_PTR_ERROR "ERROR : mlx_ptr failed."
@@ -34,7 +37,11 @@ typedef struct s_data
 	void	*win_ptr;
 	void	*img_background;
 	void	*img_wall;
+	void	*img_floor;
+	void	*img_coin;
+	void	*img_enemy;
 	void	*img_player;
+	void	*img_exit;
 	int	x;
 	int	y;
 	int	fd;

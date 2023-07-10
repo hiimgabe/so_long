@@ -35,7 +35,6 @@ void	ft_fill_map(t_data *data)
 
 void ft_fill_window(t_data *data, int i, int j)
 {
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_background, 0, 0);
 	while (i < data->rows)
 	{
 		j = 0;
@@ -48,6 +47,18 @@ void ft_fill_window(t_data *data, int i, int j)
 			else if (data->map[i][j] == 'P')
 			{
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_player, j * SIZE, i * SIZE);
+			}
+			else if (data->map[i][j] == '0')
+			{
+				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, j * SIZE, i * SIZE);
+			}
+			else if (data->map[i][j] == 'C')
+			{
+				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_coin, j * SIZE, i * SIZE);
+			}
+			else if (data->map[i][j] == 'E')
+			{
+				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_enemy, j * SIZE, i * SIZE);
 			}
 			j++;
 		}
@@ -83,7 +94,10 @@ void	ft_initmap(t_data *data, char *mapname)
 void	ft_getsprites(t_data *data, char *mapname)
 {
 	data->img_wall = mlx_xpm_file_to_image(data->mlx_ptr, WALL, &data->x, &data->y);
-	data->img_background = mlx_xpm_file_to_image(data->mlx_ptr, BACKGROUND, &data->x, &data->y);
-	data->img_player = mlx_xpm_file_to_image(data->mlx_ptr, MC, &data->x, &data->y);
+	data->img_floor = mlx_xpm_file_to_image(data->mlx_ptr, FLOOR, &data->x, &data->y);
+	data->img_player = mlx_xpm_file_to_image(data->mlx_ptr, TOMMY, &data->x, &data->y);
+	data->img_coin = mlx_xpm_file_to_image(data->mlx_ptr, COIN, &data->x, &data->y);
+	data->img_enemy = mlx_xpm_file_to_image(data->mlx_ptr, ENEMY, &data->x, &data->y);
+	data->img_exit = mlx_xpm_file_to_image(data->mlx_ptr, EXIT, &data->x, &data->y);
 	ft_initmap(data, mapname);
 }

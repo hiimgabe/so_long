@@ -24,7 +24,8 @@
 # define PLAYER "./assets/sprites/PLAYER.xpm"
 # define ENEMY "./assets/sprites/ENEMY.xpm"
 # define COIN "./assets/sprites/COIN.xpm"
-# define EXIT "./assets/sprites/EXIT.xpm"
+# define EXIT_CLOSED "./assets/sprites/EXIT_CLOSED.xpm"
+# define EXIT_OPEN "./assets/sprites/EXIT_OPEN.xpm"
 # define SIZE 32
 
 # define MLX_PTR_ERROR "ERROR : mlx_ptr failed."
@@ -40,8 +41,10 @@ typedef struct s_data
 	void	*img_coin;
 	void	*img_enemy;
 	void	*img_player;
-	void	*img_exit;
+	void	*img_exit_closed;
+	void	*img_exit_open;
 	int	moves;
+	int	score;
 	int	x;
 	int	y;
 	int	p_x;
@@ -49,9 +52,11 @@ typedef struct s_data
 	int	fd;
 	int	columns;
 	int	lines;
-	int	p;
 	int	c;
+	int	p;
 	int	e;
+	int	e_x;
+	int	e_y;
 	char	**map;
 }	t_data;
 
@@ -67,7 +72,7 @@ void	ft_fill_map(t_data *data);
 
 // PLAYER
 int	handle_input(int keysym, t_data *data);
-int	ft_moveplayer(t_data *data, int y, int x, char key);
+int	ft_moveplayer(t_data *data, int y, int x);
 void	ft_playercoordinates(t_data *data);
 
 //CLEAR

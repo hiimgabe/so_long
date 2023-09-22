@@ -57,9 +57,13 @@ void ft_fill_window(t_data *data, int i, int j)
 			{
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_coin, j * SIZE, i * SIZE);
 			}
-			else if (data->map[i][j] == 'E')
+			else if (data->map[i][j] == 'M')
 			{
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_enemy, j * SIZE, i * SIZE);
+			}
+			else if (data->map[i][j] == 'E')
+			{
+				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit_closed, j * SIZE, i * SIZE);
 			}
 			j++;
 		}
@@ -99,6 +103,7 @@ void	ft_getsprites(t_data *data, char *mapname)
 	data->img_player = mlx_xpm_file_to_image(data->mlx_ptr, PLAYER, &data->x, &data->y);
 	data->img_coin = mlx_xpm_file_to_image(data->mlx_ptr, COIN, &data->x, &data->y);
 	data->img_enemy = mlx_xpm_file_to_image(data->mlx_ptr, ENEMY, &data->x, &data->y);
-	data->img_exit = mlx_xpm_file_to_image(data->mlx_ptr, EXIT, &data->x, &data->y);
+	data->img_exit_closed = mlx_xpm_file_to_image(data->mlx_ptr, EXIT_CLOSED, &data->x, &data->y);
+	data->img_exit_open = mlx_xpm_file_to_image(data->mlx_ptr, EXIT_OPEN, &data->x, &data->y);
 	ft_initmap(data, mapname);
 }

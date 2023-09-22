@@ -33,10 +33,16 @@ void	ft_initdata(t_data *data)
 	data->img_coin = 0;
 	data->img_enemy = 0;
 	data->img_player = 0;
-	data->img_exit = 0;
+	data->img_exit_closed = 0;
+	data->img_exit_open = 0;
 	data->moves = 0;
+	data->score = 0;
 	data->x = 0;
 	data->y = 0;
+	data->p = 0;
+	data->e = 0;
+	data->e_x = 0;
+	data->e_y = 0;
 	data->p_x = 0;
 	data->p_y = 0;
 	data->fd = 0;
@@ -83,7 +89,11 @@ void	ft_playercoordinates(t_data *data)
 			if (data->map[i][j] == 'C')
 				data->c++;
 			if (data->map[i][j] == 'E')
+			{
 				data->e++;
+				data->e_x = j;
+				data->e_y = i;
+			}
 			j++;
 		}
 		i++;

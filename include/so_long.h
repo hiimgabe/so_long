@@ -21,8 +21,14 @@
 
 # define WALL "./assets/sprites/WALL.xpm"
 # define FLOOR "./assets/sprites/FLOOR.xpm"
-# define PLAYER "./assets/sprites/PLAYER.xpm"
+
+# define PLAYER_W "./assets/sprites/PLAYER_UP.xpm"
+# define PLAYER_A "./assets/sprites/PLAYER_LEFT.xpm"
+# define PLAYER_S "./assets/sprites/PLAYER_DOWN.xpm"
+# define PLAYER_D "./assets/sprites/PLAYER_RIGHT.xpm"
+
 # define ENEMY "./assets/sprites/ENEMY.xpm"
+
 # define COIN "./assets/sprites/COIN.xpm"
 # define EXIT_CLOSED "./assets/sprites/EXIT_CLOSED.xpm"
 # define EXIT_OPEN "./assets/sprites/EXIT_OPEN.xpm"
@@ -31,6 +37,15 @@
 # define MLX_PTR_ERROR "ERROR : mlx_ptr failed."
 # define MLX_WIN_PTR_ERROR "ERROR : win_ptr failed."
 
+typedef struct s_entity
+{
+	void	*img_w;
+	void	*img_a;
+	void	*img_s;
+	void	*img_d;
+	int	x;
+	int	y;
+} t_entity;
 
 typedef struct s_data
 {
@@ -43,12 +58,10 @@ typedef struct s_data
 	void	*img_player;
 	void	*img_exit_closed;
 	void	*img_exit_open;
-	int	moves;
-	int	score;
 	int	x;
 	int	y;
-	int	p_x;
-	int	p_y;
+	int	moves;
+	int	score;
 	int	fd;
 	int	columns;
 	int	lines;
@@ -58,6 +71,8 @@ typedef struct s_data
 	int	e_x;
 	int	e_y;
 	char	**map;
+	t_entity	*player;
+	t_entity	**enemie;
 }	t_data;
 
 void	ft_initdata(t_data *data);
@@ -72,7 +87,7 @@ void	ft_fill_map(t_data *data);
 
 // PLAYER
 int	handle_input(int keysym, t_data *data);
-int	ft_moveplayer(t_data *data, int y, int x);
+int	ft_moveplayer(t_data *data, int y, int x, char key);
 void	ft_playercoordinates(t_data *data);
 
 //CLEAR

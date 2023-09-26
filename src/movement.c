@@ -12,27 +12,63 @@
 
 #include "so_long.h"
 
-int	ft_moveplayer(t_data *data, int y, int x)
+int	ft_moveplayer(t_data *data, int y, int x, char key)
 {
 	if (data->map[y][x] == '0')
 	{
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->p_x * SIZE, data->p_y * SIZE);
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_player, x * SIZE, y * SIZE);
-		data->map[data->p_y][data->p_x] = '0';
+		if (key == 'W')
+		{
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_w, x * SIZE, y * SIZE);
+		}
+		else if (key == 'A')
+		{
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_a, x * SIZE, y * SIZE);
+		}
+		else if (key == 'S')
+		{
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_s, x * SIZE, y * SIZE);
+		}
+		else if (key == 'D')
+		{
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_d, x * SIZE, y * SIZE);
+		}
+		data->map[data->player->y][data->player->x] = '0';
 		data->map[y][x] = '0';
-		data->p_y = y;
-		data->p_x = x;
+		data->player->y = y;
+		data->player->x = x;
 		data->moves ++;
 		return (1);
 	}
 	else if(data->map[y][x] == 'C')
 	{
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->p_x * SIZE, data->p_y * SIZE);
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_player, x * SIZE, y * SIZE);
-		data->map[data->p_y][data->p_x] = '0';
+		if (key == 'W')
+		{
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_w, x * SIZE, y * SIZE);
+		}
+		else if (key == 'A')
+		{
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_a, x * SIZE, y * SIZE);
+		}
+		else if (key == 'S')
+		{
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_s, x * SIZE, y * SIZE);
+		}
+		else if (key == 'D')
+		{
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_d, x * SIZE, y * SIZE);
+		}
+		data->map[data->player->y][data->player->x] = '0';
 		data->map[y][x] = '0';
-		data->p_y = y;
-		data->p_x = x;
+		data->player->y = y;
+		data->player->x = x;
 		data->moves ++;
 		data->score ++;
 		if (data->score == data->c)
@@ -60,14 +96,14 @@ int	handle_input(int keysym, t_data *data)
 	if (keysym == 65307)
 		ft_clear(data);
 	if (keysym == 119)
-		result = ft_moveplayer(data, data->p_y - 1, data->p_x);
+		result = ft_moveplayer(data, data->player->y - 1, data->player->x, 'W');
 	if (keysym == 97)
-		result = ft_moveplayer(data, data->p_y, data->p_x - 1);
+		result = ft_moveplayer(data, data->player->y, data->player->x - 1, 'A');
 	if (keysym == 115)
-		result = ft_moveplayer(data, data->p_y + 1, data->p_x);
+		result = ft_moveplayer(data, data->player->y + 1, data->player->x, 'S');
 	if (keysym == 100)
-		result = ft_moveplayer(data, data->p_y, data->p_x + 1);
+		result = ft_moveplayer(data, data->player->y, data->player->x + 1, 'D');
 	if (result == 1)
-		ft_printf("Move number: %d\n", data->moves);
+		ft_printf("Move number: %d\nScore: %d out of %d\nKey: %d\n", data->moves, data->score, data->c, keysym);
 	return (0);
 }

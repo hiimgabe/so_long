@@ -35,6 +35,10 @@ void	ft_initdata(t_data *data)
 	data->img_player = 0;
 	data->img_exit_closed = 0;
 	data->img_exit_open = 0;
+	data->player->img_w1 = 0;
+	data->player->img_a2 = 0;
+	data->player->img_s1 = 0;
+	data->player->img_d1 = 0;
 	data->moves = 0;
 	data->score = 0;
 	data->x = 0;

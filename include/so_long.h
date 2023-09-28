@@ -23,26 +23,30 @@
 # define FLOOR "./assets/sprites/FLOOR.xpm"
 
 # define PLAYER_W "./assets/sprites/PLAYER_UP.xpm"
-# define PLAYER_A "./assets/sprites/PLAYER_LEFT.xpm"
+# define PLAYER_A1 "./assets/sprites/PLAYER_LEFT1.xpm"
 # define PLAYER_S "./assets/sprites/PLAYER_DOWN.xpm"
-# define PLAYER_D "./assets/sprites/PLAYER_RIGHT.xpm"
+# define PLAYER_D1 "./assets/sprites/PLAYER_RIGHT1.xpm"
 
 # define ENEMY "./assets/sprites/ENEMY.xpm"
 
 # define COIN "./assets/sprites/COIN.xpm"
 # define EXIT_CLOSED "./assets/sprites/EXIT_CLOSED.xpm"
 # define EXIT_OPEN "./assets/sprites/EXIT_OPEN.xpm"
-# define SIZE 32
+# define SIZE 64
 
 # define MLX_PTR_ERROR "ERROR : mlx_ptr failed."
 # define MLX_WIN_PTR_ERROR "ERROR : win_ptr failed."
 
 typedef struct s_entity
 {
-	void	*img_w;
-	void	*img_a;
-	void	*img_s;
-	void	*img_d;
+	void	*img_w1;
+	void	*img_w2;
+	void	*img_a1;
+	void	*img_a2;
+	void	*img_s1;
+	void	*img_s2;
+	void	*img_d1;
+	void	*img_d2;
 	int	x;
 	int	y;
 } t_entity;

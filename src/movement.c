@@ -19,22 +19,22 @@ int	ft_moveplayer(t_data *data, int y, int x, char key)
 		if (key == 'W')
 		{
 			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_w, x * SIZE, y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_w1, x * SIZE, y * SIZE);
 		}
 		else if (key == 'A')
 		{
 			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_a, x * SIZE, y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_a1, x * SIZE, y * SIZE);
 		}
 		else if (key == 'S')
 		{
 			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_s, x * SIZE, y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_s1, x * SIZE, y * SIZE);
 		}
 		else if (key == 'D')
 		{
 			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_d, x * SIZE, y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_d1, x * SIZE, y * SIZE);
 		}
 		data->map[data->player->y][data->player->x] = '0';
 		data->map[y][x] = '0';
@@ -48,22 +48,22 @@ int	ft_moveplayer(t_data *data, int y, int x, char key)
 		if (key == 'W')
 		{
 			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_w, x * SIZE, y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_w1, x * SIZE, y * SIZE);
 		}
 		else if (key == 'A')
 		{
 			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_a, x * SIZE, y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_a1, x * SIZE, y * SIZE);
 		}
 		else if (key == 'S')
 		{
 			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_s, x * SIZE, y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_s1, x * SIZE, y * SIZE);
 		}
 		else if (key == 'D')
 		{
 			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_d, x * SIZE, y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_d1, x * SIZE, y * SIZE);
 		}
 		data->map[data->player->y][data->player->x] = '0';
 		data->map[y][x] = '0';

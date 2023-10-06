@@ -12,7 +12,7 @@
 
 NAME = so_long
 
-SRC = src/main.c src/map.c src/utils.c src/clear.c src/movement.c
+SRC = src/main.c src/map.c src/utils.c src/clear.c src/movement.c src/init.c src/animations.c
 
 OBJ = ${SRC:.c=.o}
 
@@ -28,6 +28,11 @@ MLX = -L ${MLX_PATH} -lmlx -Ilmlx -lXext -lX11 -lm
 
 .c.o:
 	${CC} ${CFLAGS} ${INCLUDE} -c $< -o ${<:.c=.o}
+
+debug: ${OBJ}
+	${MAKE} ${LIBFT_PATH}
+	${MAKE} ${MLX_PATH}
+	${CC} -g ${OBJ} ${LIBFT} ${MLX} -o ${NAME}
 
 $(NAME): ${OBJ}
 	${MAKE} ${LIBFT_PATH}

@@ -12,34 +12,36 @@
 
 #include "so_long.h"
 
+
+
 int	ft_moveplayer(t_data *data, int y, int x, char key)
 {
 	if (data->map[y][x] == '0')
 	{
 		if (key == 'W')
 		{
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_w1, x * SIZE, y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->x * SIZE, data->y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_w1, x * SIZE, y * SIZE);
 		}
 		else if (key == 'A')
 		{
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_a1, x * SIZE, y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->x * SIZE, data->y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_a1, x * SIZE, y * SIZE);
 		}
 		else if (key == 'S')
 		{
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_s1, x * SIZE, y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->x * SIZE, data->y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_s1, x * SIZE, y * SIZE);
 		}
 		else if (key == 'D')
 		{
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_d1, x * SIZE, y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->x * SIZE, data->y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_d1, x * SIZE, y * SIZE);
 		}
-		data->map[data->player->y][data->player->x] = '0';
+		data->map[data->y][data->x] = '0';
 		data->map[y][x] = '0';
-		data->player->y = y;
-		data->player->x = x;
+		data->y = y;
+		data->x = x;
 		data->moves ++;
 		return (1);
 	}
@@ -47,35 +49,36 @@ int	ft_moveplayer(t_data *data, int y, int x, char key)
 	{
 		if (key == 'W')
 		{
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_w1, x * SIZE, y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->x * SIZE, data->y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_w1, x * SIZE, y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_w2, x * SIZE, y * SIZE);
 		}
 		else if (key == 'A')
 		{
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_a1, x * SIZE, y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->x * SIZE, data->y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_a1, x * SIZE, y * SIZE);
 		}
 		else if (key == 'S')
 		{
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_s1, x * SIZE, y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->x * SIZE, data->y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_s1, x * SIZE, y * SIZE);
 		}
 		else if (key == 'D')
 		{
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->player->x * SIZE, data->player->y * SIZE);
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player->img_d1, x * SIZE, y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->x * SIZE, data->y * SIZE);
+			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_d1, x * SIZE, y * SIZE);
 		}
-		data->map[data->player->y][data->player->x] = '0';
+		data->map[data->y][data->x] = '0';
 		data->map[y][x] = '0';
-		data->player->y = y;
-		data->player->x = x;
+		data->y = y;
+		data->x = x;
 		data->moves ++;
 		data->score ++;
-		if (data->score == data->c)
+		if (data->score == data->coin)
 			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit_open, data->e_x * SIZE, data->e_y * SIZE);
 		return (1);
 	}
-	else if (data->map[y][x] == 'E' && data->score == data->c)
+	else if (data->map[y][x] == 'E' && data->score == data->coin)
 	{
 		printf("Congratulations, you collected everything and escaped in %d moves!\n", data->moves);
 		ft_clear(data);
@@ -96,14 +99,14 @@ int	handle_input(int keysym, t_data *data)
 	if (keysym == 65307)
 		ft_clear(data);
 	if (keysym == 119)
-		result = ft_moveplayer(data, data->player->y - 1, data->player->x, 'W');
+		result = ft_moveplayer(data, data->y - 1, data->x, 'W');
 	if (keysym == 97)
-		result = ft_moveplayer(data, data->player->y, data->player->x - 1, 'A');
+		result = ft_moveplayer(data, data->y, data->x - 1, 'A');
 	if (keysym == 115)
-		result = ft_moveplayer(data, data->player->y + 1, data->player->x, 'S');
+		result = ft_moveplayer(data, data->y + 1, data->x, 'S');
 	if (keysym == 100)
-		result = ft_moveplayer(data, data->player->y, data->player->x + 1, 'D');
+		result = ft_moveplayer(data, data->y, data->x + 1, 'D');
 	if (result == 1)
-		ft_printf("Move number: %d\nScore: %d out of %d\nKey: %d\n", data->moves, data->score, data->c, keysym);
+		ft_printf("Move number: %d\nScore: %d out of %d\nKey: %d\n", data->moves, data->score, data->coin, keysym);
 	return (0);
 }

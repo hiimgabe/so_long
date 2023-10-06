@@ -17,11 +17,10 @@ int	ft_clear(t_data	*data)
 	mlx_destroy_image(data->mlx_ptr, data->img_wall);
 	mlx_destroy_image(data->mlx_ptr, data->img_floor);
 	mlx_destroy_image(data->mlx_ptr, data->img_coin);
-	mlx_destroy_image(data->mlx_ptr, data->img_enemy);
-	mlx_destroy_image(data->mlx_ptr, data->player->img_w1);
-	mlx_destroy_image(data->mlx_ptr, data->player->img_a1);
-	mlx_destroy_image(data->mlx_ptr, data->player->img_s1);
-	mlx_destroy_image(data->mlx_ptr, data->player->img_d1);
+	mlx_destroy_image(data->mlx_ptr, data->img_w1);
+	mlx_destroy_image(data->mlx_ptr, data->img_a1);
+	mlx_destroy_image(data->mlx_ptr, data->img_s1);
+	mlx_destroy_image(data->mlx_ptr, data->img_d1);
 	mlx_destroy_image(data->mlx_ptr, data->img_exit_closed);
 	mlx_destroy_image(data->mlx_ptr, data->img_exit_open);
 	ft_clear_map(data);

@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 		ft_printf("Wrong number of arguments.\nTry again ex: ./so_long assets/maps/map1.ber");
 		return (0);
 	}
-	ft_initdata(&data);
+	ft_init(&data);
 	if (argc == 2)
 	{
 		data.mlx_ptr = mlx_init();

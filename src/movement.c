@@ -74,8 +74,6 @@ int	ft_moveplayer(t_data *data, int y, int x, char key)
 		data->x = x;
 		data->moves ++;
 		data->score ++;
-		if (data->score == data->coin)
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit_open, data->e_x * SIZE, data->e_y * SIZE);
 		return (1);
 	}
 	else if (data->map[y][x] == 'E' && data->score == data->coin)

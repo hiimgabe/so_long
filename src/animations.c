@@ -12,8 +12,53 @@
 
 #include "so_long.h"
 
-void ft_player_anim(t_data *data, int x, int y)
+int ft_exit_anim(t_data *data)
 {
-    mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->x * SIZE, data->y * SIZE);
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_w1, x * SIZE, y * SIZE);
+    static int  i;
+    int num;
+
+    num = 18000;
+    i++;
+    if (i == num)
+        mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit1, data->e_x * SIZE, data->e_y * SIZE);
+    else if (i == num * 2)
+        mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit2, data->e_x * SIZE, data->e_y * SIZE);
+    else if (i == num * 3)
+        mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit3, data->e_x * SIZE, data->e_y * SIZE);
+    else if (i == num * 4)
+    {
+        mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit4, data->e_x * SIZE, data->e_y * SIZE);
+        i = 0;
+    }
+    return (1);
+}
+
+int ft_anim_coin(t_data *data)
+{
+    static int  i;
+    static int  j;
+    static int  k;
+
+    if (i == 3)
+        i = 0;
+    k = 0;
+    while (k < data->lines)
+    {
+        j = 0;
+        while (data->map[k][j] != '\n' && data->map[k][j] != '\0')
+        {
+            if (data->map[k][j] == 'C' && i == 0)
+                mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit1, j * SIZE, k * SIZE);
+            else if (data->map[k][j] == 'C' && i == 1)
+                mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit2, j * SIZE, k * SIZE);
+            else if (data->map[k][j] == 'C' && i == 2)
+                mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit3, j * SIZE, k * SIZE);
+            else if (data->map[k][j] == 'C' && i == 3)
+                mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit4, j * SIZE, k * SIZE);
+            j++;
+        }
+        k++;
+    }
+    i++;
+    return (1);
 }

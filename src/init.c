@@ -19,8 +19,10 @@ void	ft_init(t_data *data)
 	data->img_wall = 0;
 	data->img_floor = 0;
 	data->img_coin = 0;
-	data->img_exit_closed = 0;
-	data->img_exit_open = 0;
+	data->img_exit1 = 0;
+	data->img_exit2 = 0;
+	data->img_exit3 = 0;
+	data->img_exit4 = 0;
 	data->moves = 0;
 	data->score = 0;
 	data->x = 0;

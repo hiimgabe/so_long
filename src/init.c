@@ -29,6 +29,8 @@ void	ft_init(t_data *data)
 	data->y = 0;
 	data->e_x = 0;
 	data->e_y = 0;
+	data->p_x = 0;
+	data->p_y = 0;
 	data->fd = 0;
 	data->map = 0;
 	data->coin = 0;

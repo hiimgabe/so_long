@@ -31,7 +31,6 @@ void	ft_fill_map(t_data *data)
 		i++;
 	}
 	data->columns = ft_strlen(data->map[0]);
-	ft_playercoordinates(data);
 }
 
 void ft_fill_window(t_data *data, int i, int j)

@@ -12,7 +12,7 @@
 
 NAME = so_long
 
-SRC = src/main.c src/map.c src/utils.c src/clear.c src/movement.c src/init.c src/animations.c
+SRC = src/main.c src/map.c src/utils.c src/clear.c src/movement.c src/init.c src/animations.c src/enemy.c
 
 OBJ = ${SRC:.c=.o}
 

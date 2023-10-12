@@ -93,12 +93,18 @@ void	ft_fill_window(t_data *data, int i, int j);
 void	ft_fill_map(t_data *data);
 
 int	ft_exit_anim(t_data *d);
-int ft_anim_coin(t_data *data);
+void ft_anim_coin(t_data *data);
+
+void	ft_enemy(t_data *data);
+void	ft_movecheck(t_data *data, int	random, int	y, int x);
+int	ft_moveenemy(t_data *data, int	y, int x, char key);
+void	ft_enemysprite(t_data *data, int y, int x, char key);
 
 // PLAYER
 int	handle_input(int keysym, t_data *data);
 int	ft_moveplayer(t_data *data, int y, int x, char key);
 void	ft_playercoordinates(t_data *data);
+void	ft_drawimg(t_data *data, int y, int x, char key);
 
 //CLEAR
 void	ft_clear_map(t_data *data);

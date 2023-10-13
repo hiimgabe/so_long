@@ -80,6 +80,7 @@ typedef struct s_data
 	int	coin;
 	int	enemy;
 	char	**map;
+	char	**map_check;
 }	t_data;
 
 void	ft_init(t_data *data);
@@ -109,5 +110,13 @@ void	ft_drawimg(t_data *data, int y, int x, char key);
 //CLEAR
 void	ft_clear_map(t_data *data);
 int		ft_clear(t_data	*data);
+
+void	ft_checkcolumns(t_data *data);
+void	ft_checklines(t_data *data);
+void	ft_checkrectangle(t_data *data);
+void	ft_checkchars(t_data *data);
+void	ft_checkwalls(t_data *data);
+void	ft_getexitcoords(t_data *data, int i, int j);
+void	ft_checkgamecomponents(t_data *data);
 
 #endif

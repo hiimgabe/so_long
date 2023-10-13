@@ -18,7 +18,7 @@ void	ft_fill_map(t_data *data)
 	char	*str;
 
 	i = 0;
-	while (i < data->lines)
+	while (i <= data->lines)
 	{
 		str = get_next_line(data->fd);
 		if (!str)
@@ -31,6 +31,8 @@ void	ft_fill_map(t_data *data)
 		i++;
 	}
 	data->columns = ft_strlen(data->map[0]);
+	ft_checklines(data);
+	ft_checkrectangle(data);
 }
 
 void ft_fill_window(t_data *data, int i, int j)

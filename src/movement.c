@@ -60,13 +60,13 @@ int	handle_input(int keysym, t_data *data)
 	if (keysym == 65307)
 		ft_clear(data);
 	if (keysym == 119)
-		result = ft_moveplayer(data, data->y - 1, data->x, 'W');
+		result = ft_moveplayer(data, data->p_y - 1, data->p_x, 'W');
 	if (keysym == 97)
-		result = ft_moveplayer(data, data->y, data->x - 1, 'A');
+		result = ft_moveplayer(data, data->p_y, data->p_x - 1, 'A');
 	if (keysym == 115)
-		result = ft_moveplayer(data, data->y + 1, data->x, 'S');
+		result = ft_moveplayer(data, data->p_y + 1, data->p_x, 'S');
 	if (keysym == 100)
-		result = ft_moveplayer(data, data->y, data->x + 1, 'D');
+		result = ft_moveplayer(data, data->p_y, data->p_x + 1, 'D');
 	if (result == 1)
 		ft_printf("Move number: %d\nScore: %d out of %d\nKey: %d\n", data->moves, data->score, data->coin, keysym);
 	return (0);

@@ -34,7 +34,7 @@ int	ft_moveenemy(t_data *data, int	y, int x, char key)
 	}
 	else if (data->map[y][x] == 'P')
 	{
-		printf("You died, score: %d\n", data->score);
+		printf("The enemy caught you! :( score: %d\n", data->score);
 		ft_clear(data);
 	}
 	return (0);
@@ -56,15 +56,15 @@ void	ft_movecheck(t_data *data, int random, int	y, int x)
 	if (i == 1)
 	{
 		data->map[y][x] = '0';
-		data->map[y][x] = mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, x * SIZE, y * SIZE);
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, x * SIZE, y * SIZE);
 	}
 }
 
 void	ft_enemy(t_data *data)
 {
-	static int	random;
-	static int	x;
-	static int	y;
+	int	random;
+	int	x;
+	int	y;
 
 	y = 0;
 	while (y < data->lines)
@@ -76,6 +76,10 @@ void	ft_enemy(t_data *data)
 			{
 				random = rand() % 4;
 				ft_movecheck(data, random, y, x);
+				if (random == 3)
+					x++;
+				if (random == 2)
+					y++;
 			}
 			x++;
 		}

@@ -55,20 +55,24 @@ void	ft_playercoordinates(t_data *data)
 		{
 			if(data->map[i][j] == 'P')
 			{
-				data->x = j;
-				data->y = i;
+				data->p_x = j;
+				data->p_y = i;
 				data->player ++;
 			}
 			if (data->map[i][j] == 'C')
-				data->coin++;
+				data->coin ++;
 			if (data->map[i][j] == 'E')
-			{
-				data->exit++;
-				data->e_x = j;
-				data->e_y = i;
-			}
+				ft_getexitcoords(data, i, j);
 			j++;
 		}
 		i++;
 	}
+	ft_checkgamecomponents(data);
+}
+
+void	ft_getexitcoords(t_data *data, int i, int j)
+{
+	data->exit ++;
+	data->e_x = j;
+	data->e_y = i;
 }

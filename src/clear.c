@@ -41,3 +41,13 @@ void	ft_clear_map(t_data *data)
 		free(data->map[i++]);
 	free(data->map);
 }
+
+void	ft_clear_map2(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (data->map_check[i])
+		free(data->map_check[i++]);
+	free(data->map_check);
+}

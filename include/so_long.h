@@ -92,6 +92,7 @@ void	ft_getsprites(t_data *data, char *mapname);
 void	ft_initmap(t_data *data, char *mapname);
 void	ft_fill_window(t_data *data, int i, int j);
 void	ft_fill_map(t_data *data);
+void	ft_dupmap(t_data *data);
 
 int	ft_exit_anim(t_data *d);
 void ft_anim_coin(t_data *data);
@@ -109,6 +110,7 @@ void	ft_drawimg(t_data *data, int y, int x, char key);
 
 //CLEAR
 void	ft_clear_map(t_data *data);
+void	ft_clear_map2(t_data *data);
 int		ft_clear(t_data	*data);
 
 void	ft_checkcolumns(t_data *data);
@@ -118,5 +120,8 @@ void	ft_checkchars(t_data *data);
 void	ft_checkwalls(t_data *data);
 void	ft_getexitcoords(t_data *data, int i, int j);
 void	ft_checkgamecomponents(t_data *data);
+void	ft_checkpath(t_data *data);
+int	ft_floodfill(t_data *data, char **map, int x, int y);
+
 
 #endif

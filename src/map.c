@@ -56,7 +56,7 @@ void ft_fill_window(t_data *data, int i, int j)
 			}
 			else if (data->map[i][j] == 'C')
 			{
-				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_coin, j * SIZE, i * SIZE);
+				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_coin1, j * SIZE, i * SIZE);
 			}
 			else if (data->map[i][j] == 'M')
 			{
@@ -64,7 +64,7 @@ void ft_fill_window(t_data *data, int i, int j)
 			}
 			else if (data->map[i][j] == 'E')
 			{
-				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit1, j * SIZE, i * SIZE);
+				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit_closed1, j * SIZE, i * SIZE);
 			}
 			j++;
 		}
@@ -109,11 +109,14 @@ void	ft_getsprites(t_data *data, char *mapname)
 	data->img_s2 = mlx_xpm_file_to_image(data->mlx_ptr, PLAYER_S2, &data->x, &data->y);
 	data->img_d1 = mlx_xpm_file_to_image(data->mlx_ptr, PLAYER_D1, &data->x, &data->y);
 	data->img_d2 = mlx_xpm_file_to_image(data->mlx_ptr, PLAYER_D2, &data->x, &data->y);
-	data->img_coin = mlx_xpm_file_to_image(data->mlx_ptr, COIN, &data->x, &data->y);
+	data->img_coin1 = mlx_xpm_file_to_image(data->mlx_ptr, COIN1, &data->x, &data->y);
+	data->img_coin2 = mlx_xpm_file_to_image(data->mlx_ptr, COIN2, &data->x, &data->y);
+	data->img_coin3 = mlx_xpm_file_to_image(data->mlx_ptr, COIN3, &data->x, &data->y);
+	data->img_coin4 = mlx_xpm_file_to_image(data->mlx_ptr, COIN4, &data->x, &data->y);
 	data->img_enemy = mlx_xpm_file_to_image(data->mlx_ptr, ENEMY, &data->x, &data->y);
-	data->img_exit1 = mlx_xpm_file_to_image(data->mlx_ptr, EXIT1, &data->x, &data->y);
-	data->img_exit2 = mlx_xpm_file_to_image(data->mlx_ptr, EXIT2, &data->x, &data->y);
-	data->img_exit3 = mlx_xpm_file_to_image(data->mlx_ptr, EXIT3, &data->x, &data->y);
-	data->img_exit4 = mlx_xpm_file_to_image(data->mlx_ptr, EXIT4, &data->x, &data->y);
+	data->img_exit_closed1 = mlx_xpm_file_to_image(data->mlx_ptr, EXIT1, &data->x, &data->y);
+	data->img_exit_closed2 = mlx_xpm_file_to_image(data->mlx_ptr, EXIT2, &data->x, &data->y);
+	data->img_exit_closed3 = mlx_xpm_file_to_image(data->mlx_ptr, EXIT3, &data->x, &data->y);
+	data->img_exit_closed4 = mlx_xpm_file_to_image(data->mlx_ptr, EXIT4, &data->x, &data->y);
 	ft_initmap(data, mapname);
 }

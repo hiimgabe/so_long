@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-int ft_exit_anim(t_data *data)
+int ft_exitclosedanim(t_data *data)
 {
     static int  i;
     int num;
@@ -23,22 +23,22 @@ int ft_exit_anim(t_data *data)
 	{
 		ft_enemy(data);
 		ft_anim_coin(data);
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit1, data->e_x * SIZE, data->e_y * SIZE);
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit_closed1, data->e_x * SIZE, data->e_y * SIZE);
 	}
     else if (i == num * 2)
 	{
 		ft_anim_coin(data);
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit2, data->e_x * SIZE, data->e_y * SIZE);
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit_closed2, data->e_x * SIZE, data->e_y * SIZE);
 	}
     else if (i == num * 3)
 	{
 		ft_anim_coin(data);
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit3, data->e_x * SIZE, data->e_y * SIZE);
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit_closed3, data->e_x * SIZE, data->e_y * SIZE);
 	}
     else if (i == num * 4)
     {
 		ft_anim_coin(data);
-        mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit4, data->e_x * SIZE, data->e_y * SIZE);
+        mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit_closed4, data->e_x * SIZE, data->e_y * SIZE);
         i = 0;
     }
     return (1);
@@ -50,7 +50,7 @@ void ft_anim_coin(t_data *data)
     static int  j;
     static int  k;
 
-    if (i == 3)
+    if (i == 4)
         i = 0;
     k = 0;
     while (k < data->lines)
@@ -59,13 +59,13 @@ void ft_anim_coin(t_data *data)
         while (data->map[k][j] != '\n' && data->map[k][j] != '\0')
         {
             if (data->map[k][j] == 'C' && i == 0)
-                mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit1, j * SIZE, k * SIZE);
+                mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_coin1, j * SIZE, k * SIZE);
             else if (data->map[k][j] == 'C' && i == 1)
-                mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit2, j * SIZE, k * SIZE);
+                mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_coin2, j * SIZE, k * SIZE);
             else if (data->map[k][j] == 'C' && i == 2)
-                mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit3, j * SIZE, k * SIZE);
+                mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_coin3, j * SIZE, k * SIZE);
             else if (data->map[k][j] == 'C' && i == 3)
-                mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit4, j * SIZE, k * SIZE);
+                mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_coin4, j * SIZE, k * SIZE);
             j++;
         }
         k++;

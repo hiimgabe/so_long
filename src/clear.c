@@ -16,15 +16,18 @@ int	ft_clear(t_data	*data)
 {
 	mlx_destroy_image(data->mlx_ptr, data->img_wall);
 	mlx_destroy_image(data->mlx_ptr, data->img_floor);
-	mlx_destroy_image(data->mlx_ptr, data->img_coin);
+	mlx_destroy_image(data->mlx_ptr, data->img_coin1);
+	mlx_destroy_image(data->mlx_ptr, data->img_coin2);
+	mlx_destroy_image(data->mlx_ptr, data->img_coin3);
+	mlx_destroy_image(data->mlx_ptr, data->img_coin4);
 	mlx_destroy_image(data->mlx_ptr, data->img_w1);
 	mlx_destroy_image(data->mlx_ptr, data->img_a1);
 	mlx_destroy_image(data->mlx_ptr, data->img_s1);
 	mlx_destroy_image(data->mlx_ptr, data->img_d1);
-	mlx_destroy_image(data->mlx_ptr, data->img_exit1);
-	mlx_destroy_image(data->mlx_ptr, data->img_exit2);
-	mlx_destroy_image(data->mlx_ptr, data->img_exit3);
-	mlx_destroy_image(data->mlx_ptr, data->img_exit4);
+	mlx_destroy_image(data->mlx_ptr, data->img_exit_closed1);
+	mlx_destroy_image(data->mlx_ptr, data->img_exit_closed2);
+	mlx_destroy_image(data->mlx_ptr, data->img_exit_closed3);
+	mlx_destroy_image(data->mlx_ptr, data->img_exit_closed4);
 	ft_clear_map(data);
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	mlx_destroy_display(data->mlx_ptr);

@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 		ft_getsprites(&data, argv[1]);
 		mlx_hook(data.win_ptr, KeyPress, KeyPressMask, handle_input, &data);
 		mlx_hook(data.win_ptr, DestroyNotify, ButtonPressMask, ft_clear, &data);
-		mlx_loop_hook(data.mlx_ptr, ft_exit_anim, &data);
+		mlx_loop_hook(data.mlx_ptr, ft_exitclosedanim, &data);
 		//mlx_loop_hook(data.mlx_ptr, ft_anim_coin, &data);
 		mlx_loop(data.mlx_ptr);
 	}

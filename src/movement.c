@@ -68,6 +68,18 @@ int	handle_input(int keysym, t_data *data)
 	if (keysym == 100)
 		result = ft_moveplayer(data, data->p_y, data->p_x + 1, 'D');
 	if (result == 1)
+	{
 		ft_printf("Move number: %d\nScore: %d out of %d\nKey: %d\n", data->moves, data->score, data->coin, keysym);
+		ft_printf("%s\n", data->map[0]);
+		ft_printf("%s\n", data->map[1]);
+		ft_printf("%s\n", data->map[2]);
+		ft_printf("%s\n", data->map[3]);
+		ft_printf("%s\n", data->map[4]);
+		ft_printf("%s\n", data->map[5]);
+		ft_printf("%s\n", data->map[6]);
+		ft_printf("%s\n", data->map[7]);
+		ft_printf("%s\n", data->map[8]);
+		ft_printf("%s\n", data->map[9]);
+	}
 	return (0);
 }

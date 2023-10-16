@@ -33,11 +33,16 @@
 
 # define ENEMY "./assets/sprites/ENEMY.xpm"
 
-# define COIN "./assets/sprites/COIN.xpm"
-# define EXIT1 "./assets/sprites/EXIT1.xpm"
-# define EXIT2 "./assets/sprites/EXIT2.xpm"
-# define EXIT3 "./assets/sprites/EXIT3.xpm"
-# define EXIT4 "./assets/sprites/EXIT4.xpm"
+# define COIN1 "./assets/sprites/COIN1.xpm"
+# define COIN2 "./assets/sprites/COIN2.xpm"
+# define COIN3 "./assets/sprites/COIN3.xpm"
+# define COIN4 "./assets/sprites/COIN4.xpm"
+
+# define EXIT1 "./assets/sprites/EXIT_CLOSED1.xpm"
+# define EXIT2 "./assets/sprites/EXIT_CLOSED2.xpm"
+# define EXIT3 "./assets/sprites/EXIT_CLOSED3.xpm"
+# define EXIT4 "./assets/sprites/EXIT_CLOSED4.xpm"
+
 # define SIZE 64
 
 # define MLX_PTR_ERROR "ERROR : mlx_ptr failed."
@@ -49,13 +54,16 @@ typedef struct s_data
 	void	*win_ptr;
 	void	*img_wall;
 	void	*img_floor;
-	void	*img_coin;
+	void	*img_coin1;
+	void	*img_coin2;
+	void	*img_coin3;
+	void	*img_coin4;
 	void	*img_enemy;
 	void	*img_player;
-	void	*img_exit1;
-	void	*img_exit2;
-	void	*img_exit3;
-	void	*img_exit4;
+	void	*img_exit_closed1;
+	void	*img_exit_closed2;
+	void	*img_exit_closed3;
+	void	*img_exit_closed4;
 	void	*img_w1;
 	void	*img_w2;
 	void	*img_a1;
@@ -94,7 +102,7 @@ void	ft_fill_window(t_data *data, int i, int j);
 void	ft_fill_map(t_data *data);
 void	ft_dupmap(t_data *data);
 
-int	ft_exit_anim(t_data *d);
+int	ft_exitclosedanim(t_data *d);
 void ft_anim_coin(t_data *data);
 
 void	ft_enemy(t_data *data);

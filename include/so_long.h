@@ -85,6 +85,7 @@ typedef struct s_data
 	int	lines;
 	int	player;
 	int	exit;
+	int	exit_state;
 	int	coin;
 	int	enemy;
 	char	**map;
@@ -102,8 +103,11 @@ void	ft_fill_window(t_data *data, int i, int j);
 void	ft_fill_map(t_data *data);
 void	ft_dupmap(t_data *data);
 
-int	ft_exitclosedanim(t_data *d);
+int	ft_animations(t_data *d);
+void    ft_animexitclosed(t_data *data);
+void    ft_animexitopen(t_data *data);
 void ft_anim_coin(t_data *data);
+void	ft_animexitclosetoopen(t_data *data);
 
 void	ft_enemy(t_data *data);
 void	ft_movecheck(t_data *data, int	random, int	y, int x);

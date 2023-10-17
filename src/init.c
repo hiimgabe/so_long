@@ -49,6 +49,7 @@ void	ft_init(t_data *data)
 	data->lines = 0;
 	data->player = 0;
 	data->exit = 0;
+	data->exit_state = 0;
 	data->coin = 0;
 	data->enemy = 0;
 	data->map = 0;

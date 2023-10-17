@@ -80,6 +80,7 @@ int	handle_input(int keysym, t_data *data)
 		ft_printf("%s\n", data->map[7]);
 		ft_printf("%s\n", data->map[8]);
 		ft_printf("%s\n", data->map[9]);
+		ft_printf("data->exit_state = %d\n", data->exit_state);
 	}
 	return (0);
 }

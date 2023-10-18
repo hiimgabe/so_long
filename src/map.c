@@ -114,9 +114,15 @@ void	ft_getsprites(t_data *data, char *mapname)
 	data->img_coin3 = mlx_xpm_file_to_image(data->mlx_ptr, COIN3, &data->x, &data->y);
 	data->img_coin4 = mlx_xpm_file_to_image(data->mlx_ptr, COIN4, &data->x, &data->y);
 	data->img_enemy = mlx_xpm_file_to_image(data->mlx_ptr, ENEMY, &data->x, &data->y);
-	data->img_exit_closed1 = mlx_xpm_file_to_image(data->mlx_ptr, EXIT1, &data->x, &data->y);
-	data->img_exit_closed2 = mlx_xpm_file_to_image(data->mlx_ptr, EXIT2, &data->x, &data->y);
-	data->img_exit_closed3 = mlx_xpm_file_to_image(data->mlx_ptr, EXIT3, &data->x, &data->y);
-	data->img_exit_closed4 = mlx_xpm_file_to_image(data->mlx_ptr, EXIT4, &data->x, &data->y);
+	data->img_exit_closed1 = mlx_xpm_file_to_image(data->mlx_ptr, EXIT_CLOSED1, &data->x, &data->y);
+	data->img_exit_closed2 = mlx_xpm_file_to_image(data->mlx_ptr, EXIT_CLOSED2, &data->x, &data->y);
+	data->img_exit_closed3 = mlx_xpm_file_to_image(data->mlx_ptr, EXIT_CLOSED3, &data->x, &data->y);
+	data->img_exit_closed4 = mlx_xpm_file_to_image(data->mlx_ptr, EXIT_CLOSED4, &data->x, &data->y);
+	data->img_closed_to_open1 = mlx_xpm_file_to_image(data->mlx_ptr, CLOSED_TO_OPEN1, &data->x, &data->y);
+	data->img_closed_to_open2 = mlx_xpm_file_to_image(data->mlx_ptr, CLOSED_TO_OPEN2, &data->x, &data->y);
+	data->img_closed_to_open3 = mlx_xpm_file_to_image(data->mlx_ptr, CLOSED_TO_OPEN3, &data->x, &data->y);
+	data->img_closed_to_open4 = mlx_xpm_file_to_image(data->mlx_ptr, CLOSED_TO_OPEN4, &data->x, &data->y);
+	data->img_exit_open1 = mlx_xpm_file_to_image(data->mlx_ptr, EXIT_OPEN1, &data->x, &data->y);
+	data->img_exit_open2 = mlx_xpm_file_to_image(data->mlx_ptr, EXIT_OPEN2, &data->x, &data->y);
 	ft_initmap(data, mapname);
 }

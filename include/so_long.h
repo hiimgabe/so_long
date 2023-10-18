@@ -38,10 +38,18 @@
 # define COIN3 "./assets/sprites/COIN3.xpm"
 # define COIN4 "./assets/sprites/COIN4.xpm"
 
-# define EXIT1 "./assets/sprites/EXIT_CLOSED1.xpm"
-# define EXIT2 "./assets/sprites/EXIT_CLOSED2.xpm"
-# define EXIT3 "./assets/sprites/EXIT_CLOSED3.xpm"
-# define EXIT4 "./assets/sprites/EXIT_CLOSED4.xpm"
+# define EXIT_CLOSED1 "./assets/sprites/EXIT_CLOSED1.xpm"
+# define EXIT_CLOSED2 "./assets/sprites/EXIT_CLOSED2.xpm"
+# define EXIT_CLOSED3 "./assets/sprites/EXIT_CLOSED3.xpm"
+# define EXIT_CLOSED4 "./assets/sprites/EXIT_CLOSED4.xpm"
+
+# define CLOSED_TO_OPEN1 "./assets/sprites/CLOSED_TO_OPEN1.xpm"
+# define CLOSED_TO_OPEN2 "./assets/sprites/CLOSED_TO_OPEN2.xpm"
+# define CLOSED_TO_OPEN3 "./assets/sprites/CLOSED_TO_OPEN3.xpm"
+# define CLOSED_TO_OPEN4 "./assets/sprites/CLOSED_TO_OPEN4.xpm"
+
+# define EXIT_OPEN1 "./assets/sprites/EXIT_OPEN1.xpm"
+# define EXIT_OPEN2 "./assets/sprites/EXIT_OPEN2.xpm"
 
 # define SIZE 64
 
@@ -59,11 +67,16 @@ typedef struct s_data
 	void	*img_coin3;
 	void	*img_coin4;
 	void	*img_enemy;
-	void	*img_player;
 	void	*img_exit_closed1;
 	void	*img_exit_closed2;
 	void	*img_exit_closed3;
 	void	*img_exit_closed4;
+	void	*img_closed_to_open1;
+	void	*img_closed_to_open2;
+	void	*img_closed_to_open3;
+	void	*img_closed_to_open4;
+	void	*img_exit_open1;
+	void	*img_exit_open2;
 	void	*img_w1;
 	void	*img_w2;
 	void	*img_a1;

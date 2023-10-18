@@ -23,7 +23,6 @@ void	ft_init(t_data *data)
 	data->img_coin3 = 0;
 	data->img_coin4 = 0;
 	data->img_enemy = 0;
-	data->img_player = 0;
 	data->img_exit_closed1 = 0;
 	data->img_exit_closed2 = 0;
 	data->img_exit_closed3 = 0;

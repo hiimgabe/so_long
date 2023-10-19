@@ -19,7 +19,13 @@
 # include <X11/X.h>
 # include <fcntl.h>
 
-# define WALL "./assets/sprites/WALL.xpm"
+# define WALL1 "./assets/sprites/WALL1.xpm"
+# define WALL2 "./assets/sprites/WALL2.xpm"
+# define WALL3 "./assets/sprites/WALL3.xpm"
+# define WALL4 "./assets/sprites/WALL4.xpm"
+# define WALL5 "./assets/sprites/WALL5.xpm"
+# define WALL6 "./assets/sprites/WALL6.xpm"
+
 # define FLOOR "./assets/sprites/FLOOR.xpm"
 
 # define PLAYER_W1 "./assets/sprites/PLAYER_UP1.xpm"
@@ -31,7 +37,8 @@
 # define PLAYER_D1 "./assets/sprites/PLAYER_RIGHT1.xpm"
 # define PLAYER_D2 "./assets/sprites/PLAYER_RIGHT2.xpm"
 
-# define ENEMY "./assets/sprites/ENEMY.xpm"
+# define ENEMY1 "./assets/sprites/ENEMY1.xpm"
+# define ENEMY2 "./assets/sprites/ENEMY2.xpm"
 
 # define COIN1 "./assets/sprites/COIN1.xpm"
 # define COIN2 "./assets/sprites/COIN2.xpm"
@@ -60,13 +67,19 @@ typedef struct s_data
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	void	*img_wall;
+	void	*img_wall1;
+	void	*img_wall2;
+	void	*img_wall3;
+	void	*img_wall4;
+	void	*img_wall5;
+	void	*img_wall6;
 	void	*img_floor;
 	void	*img_coin1;
 	void	*img_coin2;
 	void	*img_coin3;
 	void	*img_coin4;
-	void	*img_enemy;
+	void	*img_enemy1;
+	void	*img_enemy2;
 	void	*img_exit_closed1;
 	void	*img_exit_closed2;
 	void	*img_exit_closed3;
@@ -115,12 +128,14 @@ void	ft_initmap(t_data *data, char *mapname);
 void	ft_fill_window(t_data *data, int i, int j);
 void	ft_fill_map(t_data *data);
 void	ft_dupmap(t_data *data);
+void	ft_drawwall(t_data *data, int y, int x);
 
 int	ft_animations(t_data *d);
 void    ft_animexitclosed(t_data *data);
 void    ft_animexitopen(t_data *data);
-void ft_anim_coin(t_data *data);
+void ft_animcoin(t_data *data);
 void	ft_animexitclosetoopen(t_data *data);
+void	ft_enemyanim(t_data *data);
 
 void	ft_enemy(t_data *data);
 void	ft_movecheck(t_data *data, int	random, int	y, int x);

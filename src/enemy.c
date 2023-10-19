@@ -12,16 +12,42 @@
 
 #include "so_long.h"
 
-void ft_enemysprite(t_data *data, int y, int x, char key)
+void	ft_enemysprite(t_data *data, int y, int x, char key)
 {
 	if (key == 'W')
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_enemy, x * SIZE, y * SIZE);
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_enemy1, x * SIZE, y * SIZE);
 	else if (key == 'A')
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_enemy, x * SIZE, y * SIZE);
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_enemy2, x * SIZE, y * SIZE);
 	else if (key == 'S')
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_enemy, x * SIZE, y * SIZE);
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_enemy1, x * SIZE, y * SIZE);
 	else if (key == 'D')
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_enemy, x * SIZE, y * SIZE);
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_enemy2, x * SIZE, y * SIZE);
+	//ft_enemyanim(data);
+}
+
+void	ft_enemyanim(t_data *data)
+{
+	static int  i;
+	static int  j;
+	static int  k;
+
+	if (i == 2)
+		i = 0;
+	k = 0;
+	while (k < data->lines)
+	{
+		j = 0;
+		while (data->map[k][j] != '\n' && data->map[k][j] != '\0')
+		{
+			if (data->map[k][j] == 'M' && i == 0)
+				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit_open1, j * SIZE, k * SIZE);
+			else if (data->map[k][j] == 'M' && i == 1)
+				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit_open2, j * SIZE, k * SIZE);
+			j++;
+		}
+		k++;
+	}
+	i++;
 }
 
 int	ft_moveenemy(t_data *data, int	y, int x, char key)

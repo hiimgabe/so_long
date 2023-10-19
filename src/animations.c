@@ -20,7 +20,7 @@ int ft_animations(t_data *data)
 		data->exit_state = 1;
 	i++;
 	if (i == 1)
-		ft_anim_coin(data);
+		ft_animcoin(data);
 	else if (i == 2)
 		ft_enemy(data);
 	else if (i == 3 && data->exit_state == 0)
@@ -31,11 +31,11 @@ int ft_animations(t_data *data)
 		ft_animexitopen(data);
 	else if (i > 3)
 		i = 0;
-	usleep(55000);
+	usleep(95550);
 	return (1);
 }
 
-void ft_anim_coin(t_data *data)
+void ft_animcoin(t_data *data)
 {
 	static int  i;
 	static int  j;

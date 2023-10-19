@@ -35,7 +35,28 @@ void	ft_fill_map(t_data *data)
 	ft_checkrectangle(data);
 }
 
-void ft_fill_window(t_data *data, int i, int j)
+void	ft_drawwall(t_data *data, int i, int j)
+{
+	int	random;
+
+	random = rand () % 2;
+	if (j == 0 || j == data->columns - 1)
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_wall4, j * SIZE, i * SIZE);
+	else if (i == 0 && j == data->columns / 2)
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_wall3, j * SIZE, i * SIZE);
+	else if (i == 0 && j > 0 && j < data->columns - 1 && random == 0)
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_wall1, j * SIZE, i * SIZE);
+	else if (i == 0 && j > 0 && j < data->columns - 1 && random == 1)
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_wall2, j * SIZE, i * SIZE);
+	else if (i == data->lines - 1 && j > 0 && j < data->columns - 1 && random == 0)
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_wall4, j * SIZE, i * SIZE);
+	else if (i == data->lines - 1 && j > 0 && j < data->columns - 1 && random == 1)
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_wall5, j * SIZE, i * SIZE);
+	else if (i > 0 && i < data->lines - 1 && j > 0 && j < data->columns - 1)
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_wall6, j * SIZE, i * SIZE);
+}
+
+void	ft_fill_window(t_data *data, int i, int j)
 {
 	while (i < data->lines)
 	{
@@ -43,29 +64,17 @@ void ft_fill_window(t_data *data, int i, int j)
 		while (data->map[i][j] != '\n' && data->map[i][j] != '\0')
 		{
 			if (data->map[i][j] == '1')
-			{
-				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_wall, j * SIZE, i * SIZE);
-			}
+				ft_drawwall(data, i, j);
 			else if (data->map[i][j] == 'P')
-			{
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_d1, j * SIZE, i * SIZE);
-			}
 			else if (data->map[i][j] == '0')
-			{
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, j * SIZE, i * SIZE);
-			}
 			else if (data->map[i][j] == 'C')
-			{
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_coin1, j * SIZE, i * SIZE);
-			}
 			else if (data->map[i][j] == 'M')
-			{
-				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_enemy, j * SIZE, i * SIZE);
-			}
+				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_enemy1, j * SIZE, i * SIZE);
 			else if (data->map[i][j] == 'E')
-			{
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit_closed1, j * SIZE, i * SIZE);
-			}
 			j++;
 		}
 		i++;
@@ -99,7 +108,12 @@ void	ft_initmap(t_data *data, char *mapname)
 
 void	ft_getsprites(t_data *data, char *mapname)
 {
-	data->img_wall = mlx_xpm_file_to_image(data->mlx_ptr, WALL, &data->x, &data->y);
+	data->img_wall1 = mlx_xpm_file_to_image(data->mlx_ptr, WALL1, &data->x, &data->y);
+	data->img_wall2 = mlx_xpm_file_to_image(data->mlx_ptr, WALL2, &data->x, &data->y);
+	data->img_wall3 = mlx_xpm_file_to_image(data->mlx_ptr, WALL3, &data->x, &data->y);
+	data->img_wall4 = mlx_xpm_file_to_image(data->mlx_ptr, WALL4, &data->x, &data->y);
+	data->img_wall5 = mlx_xpm_file_to_image(data->mlx_ptr, WALL5, &data->x, &data->y);
+	data->img_wall6 = mlx_xpm_file_to_image(data->mlx_ptr, WALL6, &data->x, &data->y);
 	data->img_floor = mlx_xpm_file_to_image(data->mlx_ptr, FLOOR, &data->x, &data->y);
 	data->img_w1 = mlx_xpm_file_to_image(data->mlx_ptr, PLAYER_W1, &data->x, &data->y);
 	data->img_w2 = mlx_xpm_file_to_image(data->mlx_ptr, PLAYER_W2, &data->x, &data->y);
@@ -113,7 +127,8 @@ void	ft_getsprites(t_data *data, char *mapname)
 	data->img_coin2 = mlx_xpm_file_to_image(data->mlx_ptr, COIN2, &data->x, &data->y);
 	data->img_coin3 = mlx_xpm_file_to_image(data->mlx_ptr, COIN3, &data->x, &data->y);
 	data->img_coin4 = mlx_xpm_file_to_image(data->mlx_ptr, COIN4, &data->x, &data->y);
-	data->img_enemy = mlx_xpm_file_to_image(data->mlx_ptr, ENEMY, &data->x, &data->y);
+	data->img_enemy1 = mlx_xpm_file_to_image(data->mlx_ptr, ENEMY1, &data->x, &data->y);
+	data->img_enemy2 = mlx_xpm_file_to_image(data->mlx_ptr, ENEMY2, &data->x, &data->y);
 	data->img_exit_closed1 = mlx_xpm_file_to_image(data->mlx_ptr, EXIT_CLOSED1, &data->x, &data->y);
 	data->img_exit_closed2 = mlx_xpm_file_to_image(data->mlx_ptr, EXIT_CLOSED2, &data->x, &data->y);
 	data->img_exit_closed3 = mlx_xpm_file_to_image(data->mlx_ptr, EXIT_CLOSED3, &data->x, &data->y);

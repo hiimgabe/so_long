@@ -14,7 +14,12 @@
 
 int	ft_clear(t_data	*data)
 {
-	mlx_destroy_image(data->mlx_ptr, data->img_wall);
+	mlx_destroy_image(data->mlx_ptr, data->img_wall1);
+	mlx_destroy_image(data->mlx_ptr, data->img_wall2);
+	mlx_destroy_image(data->mlx_ptr, data->img_wall3);
+	mlx_destroy_image(data->mlx_ptr, data->img_wall4);
+	mlx_destroy_image(data->mlx_ptr, data->img_wall5);
+	mlx_destroy_image(data->mlx_ptr, data->img_wall6);
 	mlx_destroy_image(data->mlx_ptr, data->img_floor);
 	mlx_destroy_image(data->mlx_ptr, data->img_coin1);
 	mlx_destroy_image(data->mlx_ptr, data->img_coin2);

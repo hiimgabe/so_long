@@ -12,24 +12,44 @@
 
 #include "so_long.h"
 
-void	ft_drawimg(t_data *data, int y, int x, char key)
+void	ft_drawimg(t_data *data, void *img, int x, int y)
 {
-	if (key == 'W')
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_w1, x * SIZE, y * SIZE);
-		else if (key == 'A')
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_a1, x * SIZE, y * SIZE);
-		else if (key == 'S')
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_s1, x * SIZE, y * SIZE);
-		else if (key == 'D')
-			mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_d1, x * SIZE, y * SIZE);
+	mlx_put_image_to_window(data->mlx_ptr,
+		data->win_ptr, img, x * SIZE, y * SIZE);
+}
+
+void	ft_playermovecheck(t_data *data, int y, int x, char key)
+{
+	static int	state;
+
+	if (state == 0)
+		state = 1;
+	else if (state == 1)
+		state = 0;
+	if (key == 'W' && state == 1)
+		ft_drawimg(data, data->img_w1, x, y);
+	else if (key == 'W' && state == 0)
+		ft_drawimg(data, data->img_w2, x, y);
+	else if (key == 'A' && state == 1)
+		ft_drawimg(data, data->img_a1, x, y);
+	else if (key == 'A' && state == 0)
+		ft_drawimg(data, data->img_a2, x, y);
+	else if (key == 'S' && state == 1)
+		ft_drawimg(data, data->img_s1, x, y);
+	else if (key == 'S' && state == 0)
+		ft_drawimg(data, data->img_s2, x, y);
+	else if (key == 'D' && state == 1)
+		ft_drawimg(data, data->img_d1, x, y);
+	else if (key == 'D' && state == 0)
+		ft_drawimg(data, data->img_d2, x, y);
 }
 
 int	ft_moveplayer(t_data *data, int y, int x, char key)
 {
 	if (data->map[y][x] == '0' || data->map[y][x] == 'C')
 	{
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, data->p_x * SIZE, data->p_y * SIZE);
-		ft_drawimg(data, y, x, key);
+		ft_drawimg(data, data->img_floor, data->p_x, data->p_y);
+		ft_playermovecheck(data, y, x, key);
 		if (data->map[y][x] == 'C')
 			data->score ++;
 		data->map[data->p_y][data->p_x] = '0';

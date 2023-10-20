@@ -51,7 +51,7 @@ void	ft_checkrectangle(t_data *data)
 			exit (0);
 		}
 		else
-			i++;;
+			i++;
 	}
 	ft_checkchars(data);
 }
@@ -152,7 +152,9 @@ int	ft_floodfill(t_data *data, char **map, int x, int y)
 	static int	e;
 	static int	c;
 
-	if (x < 0 || y < 0 || x > data->columns || y > data->lines || map[y][x] == '1' || map[y][x] == 'X')
+	if (x < 0 || y < 0 || x > data->columns
+		|| y > data->lines || map[y][x] == '1'
+		|| map[y][x] == 'X')
 		return (0);
 	if (map[y][x] == 'E')
 	{
@@ -160,7 +162,7 @@ int	ft_floodfill(t_data *data, char **map, int x, int y)
 		map[y][x] = 'X';
 		return (0);
 	}
-	if(map[y][x] == 'C')
+	if (map[y][x] == 'C')
 		c++;
 	map[y][x] = 'X';
 	ft_floodfill(data, map, x + 1, y);

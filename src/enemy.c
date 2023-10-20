@@ -22,7 +22,6 @@ void	ft_enemysprite(t_data *data, int y, int x, char key)
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_enemy1, x * SIZE, y * SIZE);
 	else if (key == 'D')
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_enemy2, x * SIZE, y * SIZE);
-	//ft_enemyanim(data);
 }
 
 void	ft_enemyanim(t_data *data)

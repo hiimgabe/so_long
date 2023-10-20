@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-void	ft_init(t_data *data)
+void	ft_initfirst(t_data *data)
 {
 	data->mlx_ptr = 0;
 	data->win_ptr = 0;
@@ -30,13 +30,33 @@ void	ft_init(t_data *data)
 	data->img_enemy1 = 0;
 	data->img_enemy2 = 0;
 	data->img_exit_closed1 = 0;
+	ft_initsecond(data);
+}
+
+void	ft_initsecond(t_data *data)
+{
 	data->img_exit_closed2 = 0;
 	data->img_exit_closed3 = 0;
 	data->img_exit_closed4 = 0;
+	data->img_closed_to_open1 = 0;
+	data->img_closed_to_open2 = 0;
+	data->img_closed_to_open3 = 0;
+	data->img_closed_to_open4 = 0;
+	data->img_exit_open1 = 0;
+	data->img_exit_open2 = 0;
 	data->img_w1 = 0;
+	data->img_w2 = 0;
 	data->img_a1 = 0;
+	data->img_a2 = 0;
 	data->img_s1 = 0;
+	data->img_s2 = 0;
 	data->img_d1 = 0;
+	data->img_d2 = 0;
+	ft_initthird(data);
+}
+
+void	ft_initthird(t_data *data)
+{
 	data->p_x = 0;
 	data->p_y = 0;
 	data->x = 0;

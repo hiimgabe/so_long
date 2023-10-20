@@ -118,41 +118,49 @@ typedef struct s_data
 	char	**map_check;
 }	t_data;
 
-void	ft_init(t_data *data);
-int	ft_cntlines(t_data *data);
-int	ft_len(char const *str);
 
 // MAP
+int		ft_cntlines(t_data *data);
+int		ft_len(char const *str);
 void	ft_getsprites(t_data *data, char *mapname);
 void	ft_initmap(t_data *data, char *mapname);
 void	ft_fill_window(t_data *data, int i, int j);
+
 void	ft_fill_map(t_data *data);
 void	ft_dupmap(t_data *data);
 void	ft_drawwall(t_data *data, int y, int x);
+void	ft_initfirst(t_data *data);
+void	ft_initsecond(t_data *data);
+void	ft_initthird(t_data *data);
 
-int	ft_animations(t_data *d);
+// ANIMATION
+int		ft_animations(t_data *d);
 void    ft_animexitclosed(t_data *data);
 void    ft_animexitopen(t_data *data);
-void ft_animcoin(t_data *data);
+void 	ft_animcoin(t_data *data);
+void	ft_drawcoin(t_data *data, int k, int j, int i);
 void	ft_animexitclosetoopen(t_data *data);
-void	ft_enemyanim(t_data *data);
 
+// ENEMY
+int		ft_moveenemy(t_data *data, int	y, int x, char key);
 void	ft_enemy(t_data *data);
 void	ft_movecheck(t_data *data, int	random, int	y, int x);
-int	ft_moveenemy(t_data *data, int	y, int x, char key);
 void	ft_enemysprite(t_data *data, int y, int x, char key);
+void	ft_enemyanim(t_data *data);
 
 // PLAYER
-int	handle_input(int keysym, t_data *data);
-int	ft_moveplayer(t_data *data, int y, int x, char key);
+int		handle_input(int keysym, t_data *data);
+int		ft_moveplayer(t_data *data, int y, int x, char key);
 void	ft_playercoordinates(t_data *data);
-void	ft_drawimg(t_data *data, int y, int x, char key);
+void	ft_playermovecheck(t_data *data, int y, int x, char key);
 
-//CLEAR
+// CLEAR
+int		ft_clear(t_data	*data);
 void	ft_clear_map(t_data *data);
 void	ft_clear_map2(t_data *data);
-int		ft_clear(t_data	*data);
 
+// CHECKS
+int		ft_floodfill(t_data *data, char **map, int x, int y);
 void	ft_checkcolumns(t_data *data);
 void	ft_checklines(t_data *data);
 void	ft_checkrectangle(t_data *data);
@@ -161,7 +169,7 @@ void	ft_checkwalls(t_data *data);
 void	ft_getexitcoords(t_data *data, int i, int j);
 void	ft_checkgamecomponents(t_data *data);
 void	ft_checkpath(t_data *data);
-int	ft_floodfill(t_data *data, char **map, int x, int y);
 
+void	ft_drawimg(t_data *data, void *img, int x, int y);
 
 #endif

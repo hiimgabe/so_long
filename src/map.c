@@ -66,15 +66,15 @@ void	ft_fill_window(t_data *data, int i, int j)
 			if (data->map[i][j] == '1')
 				ft_drawwall(data, i, j);
 			else if (data->map[i][j] == 'P')
-				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_d1, j * SIZE, i * SIZE);
+				ft_drawimg(data, data->img_d1, j, i);
 			else if (data->map[i][j] == '0')
-				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, j * SIZE, i * SIZE);
+				ft_drawimg(data, data->img_floor, j, i);
 			else if (data->map[i][j] == 'C')
-				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_coin1, j * SIZE, i * SIZE);
+				ft_drawimg(data, data->img_coin1, j, i);
 			else if (data->map[i][j] == 'M')
-				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_enemy1, j * SIZE, i * SIZE);
+				ft_drawimg(data, data->img_enemy1, j, i);
 			else if (data->map[i][j] == 'E')
-				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit_closed1, j * SIZE, i * SIZE);
+				ft_drawimg(data, data->img_exit_closed1, j, i);
 			j++;
 		}
 		i++;

@@ -154,6 +154,7 @@ int		handle_input(int keysym, t_data *data);
 int		ft_moveplayer(t_data *data, int y, int x, char key);
 void	ft_playercoordinates(t_data *data);
 void	ft_playermovecheck(t_data *data, int y, int x, char key);
+void	ft_moves(t_data *data);
 
 // CLEAR
 int		ft_clear(t_data	*data);

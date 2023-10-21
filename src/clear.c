@@ -14,25 +14,25 @@
 
 int	ft_clear(t_data	*data)
 {
-	mlx_destroy_image(data->mlx_ptr, data->img_wall1);
-	mlx_destroy_image(data->mlx_ptr, data->img_wall2);
-	mlx_destroy_image(data->mlx_ptr, data->img_wall3);
-	mlx_destroy_image(data->mlx_ptr, data->img_wall4);
-	mlx_destroy_image(data->mlx_ptr, data->img_wall5);
-	mlx_destroy_image(data->mlx_ptr, data->img_wall6);
-	mlx_destroy_image(data->mlx_ptr, data->img_floor);
-	mlx_destroy_image(data->mlx_ptr, data->img_coin1);
-	mlx_destroy_image(data->mlx_ptr, data->img_coin2);
-	mlx_destroy_image(data->mlx_ptr, data->img_coin3);
-	mlx_destroy_image(data->mlx_ptr, data->img_coin4);
-	mlx_destroy_image(data->mlx_ptr, data->img_w1);
-	mlx_destroy_image(data->mlx_ptr, data->img_a1);
-	mlx_destroy_image(data->mlx_ptr, data->img_s1);
-	mlx_destroy_image(data->mlx_ptr, data->img_d1);
-	mlx_destroy_image(data->mlx_ptr, data->img_exit_closed1);
-	mlx_destroy_image(data->mlx_ptr, data->img_exit_closed2);
-	mlx_destroy_image(data->mlx_ptr, data->img_exit_closed3);
-	mlx_destroy_image(data->mlx_ptr, data->img_exit_closed4);
+	mlx_destroy_image(data->mlx_ptr, data->wall1);
+	mlx_destroy_image(data->mlx_ptr, data->wall2);
+	mlx_destroy_image(data->mlx_ptr, data->wall3);
+	mlx_destroy_image(data->mlx_ptr, data->wall4);
+	mlx_destroy_image(data->mlx_ptr, data->wall5);
+	mlx_destroy_image(data->mlx_ptr, data->wall6);
+	mlx_destroy_image(data->mlx_ptr, data->floor);
+	mlx_destroy_image(data->mlx_ptr, data->coin1);
+	mlx_destroy_image(data->mlx_ptr, data->coin2);
+	mlx_destroy_image(data->mlx_ptr, data->coin3);
+	mlx_destroy_image(data->mlx_ptr, data->coin4);
+	mlx_destroy_image(data->mlx_ptr, data->w1);
+	mlx_destroy_image(data->mlx_ptr, data->a1);
+	mlx_destroy_image(data->mlx_ptr, data->s1);
+	mlx_destroy_image(data->mlx_ptr, data->d1);
+	mlx_destroy_image(data->mlx_ptr, data->exit_closed1);
+	mlx_destroy_image(data->mlx_ptr, data->exit_closed2);
+	mlx_destroy_image(data->mlx_ptr, data->exit_closed3);
+	mlx_destroy_image(data->mlx_ptr, data->exit_closed4);
 	ft_clear_map(data);
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	mlx_destroy_display(data->mlx_ptr);

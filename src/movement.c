@@ -27,28 +27,28 @@ void	ft_playermovecheck(t_data *data, int y, int x, char key)
 	else if (state == 1)
 		state = 0;
 	if (key == 'W' && state == 1)
-		ft_drawimg(data, data->img_w1, x, y);
+		ft_drawimg(data, data->w1, x, y);
 	else if (key == 'W' && state == 0)
-		ft_drawimg(data, data->img_w2, x, y);
+		ft_drawimg(data, data->w2, x, y);
 	else if (key == 'A' && state == 1)
-		ft_drawimg(data, data->img_a1, x, y);
+		ft_drawimg(data, data->a1, x, y);
 	else if (key == 'A' && state == 0)
-		ft_drawimg(data, data->img_a2, x, y);
+		ft_drawimg(data, data->a2, x, y);
 	else if (key == 'S' && state == 1)
-		ft_drawimg(data, data->img_s1, x, y);
+		ft_drawimg(data, data->s1, x, y);
 	else if (key == 'S' && state == 0)
-		ft_drawimg(data, data->img_s2, x, y);
+		ft_drawimg(data, data->s2, x, y);
 	else if (key == 'D' && state == 1)
-		ft_drawimg(data, data->img_d1, x, y);
+		ft_drawimg(data, data->d1, x, y);
 	else if (key == 'D' && state == 0)
-		ft_drawimg(data, data->img_d2, x, y);
+		ft_drawimg(data, data->d2, x, y);
 }
 
 int	ft_moveplayer(t_data *data, int y, int x, char key)
 {
 	if (data->map[y][x] == '0' || data->map[y][x] == 'C')
 	{
-		ft_drawimg(data, data->img_floor, data->p_x, data->p_y);
+		ft_drawimg(data, data->floor, data->p_x, data->p_y);
 		ft_playermovecheck(data, y, x, key);
 		if (data->map[y][x] == 'C')
 			data->score ++;
@@ -61,7 +61,7 @@ int	ft_moveplayer(t_data *data, int y, int x, char key)
 	}
 	else if (data->map[y][x] == 'E' && data->score == data->coin)
 	{
-		printf("Congratulations, you collected everything and escaped in %d moves!\n", data->moves);
+		printf("Congratulations, you escaped in %d moves!\n", data->moves);
 		ft_clear(data);
 	}
 	else if (data->map[y][x] == 'M')
@@ -70,6 +70,15 @@ int	ft_moveplayer(t_data *data, int y, int x, char key)
 		ft_clear(data);
 	}
 	return (0);
+}
+
+void	ft_moves(t_data *data)
+{
+	char	*moves;
+
+	moves = ft_itoa(data->moves);
+	mlx_string_put(data->mlx_ptr, data->win_ptr, (data->columns / 2) * SIZE + 50, data->lines * SIZE + 15, 0x4DFF00, moves);
+	free (moves);
 }
 
 int	handle_input(int keysym, t_data *data)
@@ -89,6 +98,8 @@ int	handle_input(int keysym, t_data *data)
 		result = ft_moveplayer(data, data->p_y, data->p_x + 1, 'D');
 	if (result == 1)
 	{
+		mlx_string_put(data->mlx_ptr, data->win_ptr, (data->columns / 2) * SIZE, data->lines * SIZE + 15, 0x4DFF00, "Moves: ");
+		ft_moves(data);
 		ft_printf("Move number: %d\nScore: %d out of %d\nKey: %d\n", data->moves, data->score, data->coin, keysym);
 		ft_printf("%s\n", data->map[0]);
 		ft_printf("%s\n", data->map[1]);

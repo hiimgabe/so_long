@@ -53,7 +53,7 @@ void	ft_playercoordinates(t_data *data)
 		j = 0;
 		while (data->map[i][j])
 		{
-			if(data->map[i][j] == 'P')
+			if (data->map[i][j] == 'P')
 			{
 				data->p_x = j;
 				data->p_y = i;

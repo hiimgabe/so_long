@@ -15,20 +15,20 @@
 void	ft_enemysprite(t_data *data, int y, int x, char key)
 {
 	if (key == 'W')
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_enemy1, x * SIZE, y * SIZE);
+		ft_drawimg(data, data->enemy1, x, y);
 	else if (key == 'A')
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_enemy2, x * SIZE, y * SIZE);
+		ft_drawimg(data, data->enemy2, x, y);
 	else if (key == 'S')
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_enemy1, x * SIZE, y * SIZE);
+		ft_drawimg(data, data->enemy1, x, y);
 	else if (key == 'D')
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_enemy2, x * SIZE, y * SIZE);
+		ft_drawimg(data, data->enemy2, x, y);
 }
 
 void	ft_enemyanim(t_data *data)
 {
-	static int  i;
-	static int  j;
-	static int  k;
+	static int	i;
+	static int	j;
+	static int	k;
 
 	if (i == 2)
 		i = 0;
@@ -39,9 +39,9 @@ void	ft_enemyanim(t_data *data)
 		while (data->map[k][j] != '\n' && data->map[k][j] != '\0')
 		{
 			if (data->map[k][j] == 'M' && i == 0)
-				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit_open1, j * SIZE, k * SIZE);
+				ft_drawimg(data, data->exit_open1, j, k);
 			else if (data->map[k][j] == 'M' && i == 1)
-				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_exit_open2, j * SIZE, k * SIZE);
+				ft_drawimg(data, data->exit_open2, j, k);
 			j++;
 		}
 		k++;
@@ -49,7 +49,7 @@ void	ft_enemyanim(t_data *data)
 	i++;
 }
 
-int	ft_moveenemy(t_data *data, int	y, int x, char key)
+int	ft_moveenemy(t_data *data, int y, int x, char key)
 {
 	if (data->map[y][x] == '0')
 	{
@@ -65,7 +65,7 @@ int	ft_moveenemy(t_data *data, int	y, int x, char key)
 	return (0);
 }
 
-void	ft_movecheck(t_data *data, int random, int	y, int x)
+void	ft_movecheck(t_data *data, int random, int y, int x)
 {
 	int	i;
 
@@ -81,7 +81,7 @@ void	ft_movecheck(t_data *data, int random, int	y, int x)
 	if (i == 1)
 	{
 		data->map[y][x] = '0';
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_floor, x * SIZE, y * SIZE);
+		ft_drawimg(data, data->floor, x, y);
 	}
 }
 

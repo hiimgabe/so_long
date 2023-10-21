@@ -31,24 +31,20 @@ int	ft_animations(t_data *data)
 		ft_animexitopen(data);
 	else if (i > 3)
 		i = 0;
-	usleep(95550);
+	usleep(90000);
 	return (1);
 }
 
 void	ft_drawcoin(t_data *data, int k, int j, int i)
 {
 	if (data->map[k][j] == 'C' && i == 0)
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->img_coin1, j * SIZE, k * SIZE);
+		ft_drawimg(data, data->coin1, j, k);
 	else if (data->map[k][j] == 'C' && i == 1)
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->img_coin2, j * SIZE, k * SIZE);
+		ft_drawimg(data, data->coin2, j, k);
 	else if (data->map[k][j] == 'C' && i == 2)
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->img_coin3, j * SIZE, k * SIZE);
+		ft_drawimg(data, data->coin3, j, k);
 	else if (data->map[k][j] == 'C' && i == 3)
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->img_coin4, j * SIZE, k * SIZE);
+		ft_drawimg(data, data->coin4, j, k);
 }
 
 void	ft_animcoin(t_data *data)
@@ -80,17 +76,13 @@ void	ft_animexitclosed(t_data *data)
 	if (i == 4)
 		i = 0;
 	if (i == 0)
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->img_exit_closed1, data->e_x * SIZE, data->e_y * SIZE);
+		ft_drawimg(data, data->exit_closed1, data->e_x, data->e_y);
 	else if (i == 1)
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->img_exit_closed2, data->e_x * SIZE, data->e_y * SIZE);
+		ft_drawimg(data, data->exit_closed2, data->e_x, data->e_y);
 	else if (i == 2)
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->img_exit_closed3, data->e_x * SIZE, data->e_y * SIZE);
+		ft_drawimg(data, data->exit_closed3, data->e_x, data->e_y);
 	else if (i == 3)
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->img_exit_closed4, data->e_x * SIZE, data->e_y * SIZE);
+		ft_drawimg(data, data->exit_closed4, data->e_x, data->e_y);
 	i++;
 }
 
@@ -98,14 +90,12 @@ void	ft_animexitopen(t_data *data)
 {
 	static int	i;
 
-	if (i == 3)
+	if (i == 2)
 		i = 0;
 	if (i == 0)
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->img_exit_open1, data->e_x * SIZE, data->e_y * SIZE);
+		ft_drawimg(data, data->exit_open1, data->e_x, data->e_y);
 	else if (i == 1)
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->img_exit_open2, data->e_x * SIZE, data->e_y * SIZE);
+		ft_drawimg(data, data->exit_open2, data->e_x, data->e_y);
 	i++;
 }
 
@@ -113,21 +103,17 @@ void	ft_animexitclosetoopen(t_data *data)
 {
 	static int	i;
 
-	if (i == 5)
+	if (i == 4)
 		i = 0;
 	if (i == 0)
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->img_closed_to_open1, data->e_x * SIZE, data->e_y * SIZE);
+		ft_drawimg(data, data->closed_to_open1, data->e_x, data->e_y);
 	else if (i == 1)
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->img_closed_to_open2, data->e_x * SIZE, data->e_y * SIZE);
+		ft_drawimg(data, data->closed_to_open2, data->e_x, data->e_y);
 	else if (i == 2)
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->img_closed_to_open3, data->e_x * SIZE, data->e_y * SIZE);
+		ft_drawimg(data, data->closed_to_open3, data->e_x, data->e_y);
 	else if (i == 3)
 	{
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->img_closed_to_open4, data->e_x * SIZE, data->e_y * SIZE);
+		ft_drawimg(data, data->closed_to_open4, data->e_x, data->e_y);
 		data->exit_state = 2;
 	}
 	i++;

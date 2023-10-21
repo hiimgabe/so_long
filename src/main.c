@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		ft_printf("Wrong number of arguments.\nTry again ex: ./so_long assets/maps/map1.ber");
+		ft_printf("%s", ARGUMENT_NUMBER_ERROR);
 		return (0);
 	}
 	ft_initfirst(&data);
@@ -38,20 +38,3 @@ int	main(int argc, char **argv)
 	}
 	return (0);
 }
-/*
-	data.mlx_ptr = mlx_init();
-	data.img.mlx_img = mlx_new_image(data.mlx_ptr, 32, 32);
-	if (data.mlx_ptr == NULL)
-		return (ft_printf("%s", MLX_PTR_ERROR));
-	data.win_ptr = mlx_new_window(data.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT, "so_long");
-	if (data.win_ptr == NULL)
-	{
-		free(data.win_ptr);
-		return (ft_printf("%s", MLX_WIN_PTR_ERROR));
-	}
-	mlx_key_hook(data.win_ptr, KeyPressMask, handle_input, &data);
-	mlx_loop(data.mlx_ptr);
-	mlx_destroy_window(data.mlx_ptr, data.win_ptr);
-	mlx_destroy_display(data.mlx_ptr);
-	free(data.mlx_ptr);
-*/

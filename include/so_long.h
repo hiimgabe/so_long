@@ -60,44 +60,45 @@
 
 # define SIZE 64
 
-# define MLX_PTR_ERROR "ERROR : mlx_ptr failed."
-# define MLX_WIN_PTR_ERROR "ERROR : win_ptr failed."
+# define MLX_PTR_ERROR "ERROR : mlx_ptr failed.\n"
+# define MLX_WIN_PTR_ERROR "ERROR : win_ptr failed.\n"
+# define ARGUMENT_NUMBER_ERROR "Wrong number of arguments.\nTry again ex: ./so_long assets/maps/map1.ber\n"
 
 typedef struct s_data
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	void	*img_wall1;
-	void	*img_wall2;
-	void	*img_wall3;
-	void	*img_wall4;
-	void	*img_wall5;
-	void	*img_wall6;
-	void	*img_floor;
-	void	*img_coin1;
-	void	*img_coin2;
-	void	*img_coin3;
-	void	*img_coin4;
-	void	*img_enemy1;
-	void	*img_enemy2;
-	void	*img_exit_closed1;
-	void	*img_exit_closed2;
-	void	*img_exit_closed3;
-	void	*img_exit_closed4;
-	void	*img_closed_to_open1;
-	void	*img_closed_to_open2;
-	void	*img_closed_to_open3;
-	void	*img_closed_to_open4;
-	void	*img_exit_open1;
-	void	*img_exit_open2;
-	void	*img_w1;
-	void	*img_w2;
-	void	*img_a1;
-	void	*img_a2;
-	void	*img_s1;
-	void	*img_s2;
-	void	*img_d1;
-	void	*img_d2;
+	void	*wall1;
+	void	*wall2;
+	void	*wall3;
+	void	*wall4;
+	void	*wall5;
+	void	*wall6;
+	void	*floor;
+	void	*coin1;
+	void	*coin2;
+	void	*coin3;
+	void	*coin4;
+	void	*enemy1;
+	void	*enemy2;
+	void	*exit_closed1;
+	void	*exit_closed2;
+	void	*exit_closed3;
+	void	*exit_closed4;
+	void	*closed_to_open1;
+	void	*closed_to_open2;
+	void	*closed_to_open3;
+	void	*closed_to_open4;
+	void	*exit_open1;
+	void	*exit_open2;
+	void	*w1;
+	void	*w2;
+	void	*a1;
+	void	*a2;
+	void	*s1;
+	void	*s2;
+	void	*d1;
+	void	*d2;
 	int	p_x;
 	int	p_y;
 	int	x;

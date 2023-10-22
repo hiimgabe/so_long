@@ -28,6 +28,8 @@
 
 # define FLOOR "./assets/sprites/FLOOR.xpm"
 
+# define BAR "./assets/sprites/BAR.xpm"
+
 # define PLAYER_W1 "./assets/sprites/PLAYER_UP1.xpm"
 # define PLAYER_W2 "./assets/sprites/PLAYER_UP2.xpm"
 # define PLAYER_A1 "./assets/sprites/PLAYER_LEFT1.xpm"
@@ -99,6 +101,7 @@ typedef struct s_data
 	void	*s2;
 	void	*d1;
 	void	*d2;
+	void	*bar;
 	int	p_x;
 	int	p_y;
 	int	x;
@@ -123,7 +126,9 @@ typedef struct s_data
 // MAP
 int		ft_cntlines(t_data *data);
 int		ft_len(char const *str);
-void	ft_getsprites(t_data *data, char *mapname);
+void	ft_getspritesfirst(t_data *data, char *mapname);
+void	ft_getspritessecond(t_data *data, char *mapname);
+void	ft_getspritesthird(t_data *data, char *mapname);
 void	ft_initmap(t_data *data, char *mapname);
 void	ft_fill_window(t_data *data, int i, int j);
 

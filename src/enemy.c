@@ -14,13 +14,27 @@
 
 void	ft_enemysprite(t_data *data, int y, int x, char key)
 {
-	if (key == 'W')
+	static int	state;
+
+	if (state == 0)
+		state = 1;
+	else if (state == 1)
+		state = 0;
+	if (key == 'W' && state == 0)
 		ft_drawimg(data, data->enemy1, x, y);
-	else if (key == 'A')
+	else if (key == 'W' && state == 1)
 		ft_drawimg(data, data->enemy2, x, y);
-	else if (key == 'S')
+	else if (key == 'A' && state == 0)
 		ft_drawimg(data, data->enemy1, x, y);
-	else if (key == 'D')
+	else if (key == 'A' && state == 1)
+		ft_drawimg(data, data->enemy2, x, y);
+	else if (key == 'S' && state == 0)
+		ft_drawimg(data, data->enemy1, x, y);
+	else if (key == 'S' && state == 1)
+		ft_drawimg(data, data->enemy2, x, y);
+	else if (key == 'D' && state == 0)
+		ft_drawimg(data, data->enemy1, x, y);
+	else if (key == 'D' && state == 1)
 		ft_drawimg(data, data->enemy2, x, y);
 }
 

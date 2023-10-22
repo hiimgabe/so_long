@@ -77,7 +77,10 @@ void	ft_moves(t_data *data)
 	char	*moves;
 
 	moves = ft_itoa(data->moves);
-	mlx_string_put(data->mlx_ptr, data->win_ptr, (data->columns / 2) * SIZE + 50, data->lines * SIZE + 15, 0x4DFF00, moves);
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->bar,
+		(data->columns / 2) * SIZE + 50, data->lines * SIZE);
+	mlx_string_put(data->mlx_ptr, data->win_ptr, (data->columns / 2)
+		* SIZE + 50, data->lines * SIZE + 15, 0xFFFFFF, moves);
 	free (moves);
 }
 
@@ -98,22 +101,26 @@ int	handle_input(int keysym, t_data *data)
 		result = ft_moveplayer(data, data->p_y, data->p_x + 1, 'D');
 	if (result == 1)
 	{
-		mlx_string_put(data->mlx_ptr, data->win_ptr, (data->columns / 2) * SIZE, data->lines * SIZE + 15, 0x4DFF00, "Moves: ");
+		mlx_string_put(data->mlx_ptr, data->win_ptr, (data->columns / 2)
+			* SIZE, data->lines * SIZE + 15, 0xFFFFFF, "Moves: ");
 		ft_moves(data);
-		ft_printf("Move number: %d\nScore: %d out of %d\nKey: %d\n", data->moves, data->score, data->coin, keysym);
-		ft_printf("%s\n", data->map[0]);
-		ft_printf("%s\n", data->map[1]);
-		ft_printf("%s\n", data->map[2]);
-		ft_printf("%s\n", data->map[3]);
-		ft_printf("%s\n", data->map[4]);
-		ft_printf("%s\n", data->map[5]);
-		ft_printf("%s\n", data->map[6]);
-		ft_printf("%s\n", data->map[7]);
-		ft_printf("%s\n", data->map[8]);
-		ft_printf("%s\n", data->map[9]);
-		ft_printf("data->exit_state = %d\n", data->exit_state);
-		ft_printf("data->lines = %d\n", data->lines);
-		ft_printf("data->columns = %d\n", data->columns);
 	}
 	return (0);
 }
+/*
+ft_printf("Move number: %d\nScore: %d out of %d\nKey:
+ %d\n", data->moves, data->score, data->coin, keysym);
+ft_printf("%s\n", data->map[0]);
+ft_printf("%s\n", data->map[1]);
+ft_printf("%s\n", data->map[2]);
+ft_printf("%s\n", data->map[3]);
+ft_printf("%s\n", data->map[4]);
+ft_printf("%s\n", data->map[5]);
+ft_printf("%s\n", data->map[6]);
+ft_printf("%s\n", data->map[7]);
+ft_printf("%s\n", data->map[8]);
+ft_printf("%s\n", data->map[9]);
+ft_printf("data->exit_state = %d\n", data->exit_state);
+ft_printf("data->lines = %d\n", data->lines);
+		ft_printf("data->columns = %d\n", data->columns);
+*/

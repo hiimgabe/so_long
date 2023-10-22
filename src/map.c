@@ -77,6 +77,7 @@ void	ft_fill_window(t_data *data, int i, int j)
 				ft_drawimg(data, data->enemy1, j, i);
 			else if (data->map[i][j] == 'E')
 				ft_drawimg(data, data->exit_closed1, j, i);
+			ft_drawimg(data, data->bar, j, data->lines);
 			j++;
 		}
 		i++;
@@ -108,7 +109,7 @@ void	ft_initmap(t_data *data, char *mapname)
 	close(data->fd);
 }
 
-void	ft_getsprites(t_data *data, char *mapname)
+void	ft_getspritesfirst(t_data *data, char *mapname)
 {
 	data->wall1 = mlx_xpm_file_to_image
 		(data->mlx_ptr, WALL1, &data->x, &data->y);
@@ -130,6 +131,11 @@ void	ft_getsprites(t_data *data, char *mapname)
 		(data->mlx_ptr, PLAYER_W2, &data->x, &data->y);
 	data->a1 = mlx_xpm_file_to_image
 		(data->mlx_ptr, PLAYER_A1, &data->x, &data->y);
+	ft_getspritessecond(data, mapname);
+}
+
+void	ft_getspritessecond(t_data *data, char *mapname)
+{
 	data->a2 = mlx_xpm_file_to_image
 		(data->mlx_ptr, PLAYER_A2, &data->x, &data->y);
 	data->s1 = mlx_xpm_file_to_image
@@ -152,6 +158,11 @@ void	ft_getsprites(t_data *data, char *mapname)
 		(data->mlx_ptr, ENEMY1, &data->x, &data->y);
 	data->enemy2 = mlx_xpm_file_to_image
 		(data->mlx_ptr, ENEMY2, &data->x, &data->y);
+	ft_getspritesthird(data, mapname);
+}
+
+void	ft_getspritesthird(t_data *data, char *mapname)
+{
 	data->exit_closed1 = mlx_xpm_file_to_image
 		(data->mlx_ptr, EXIT_CLOSED1, &data->x, &data->y);
 	data->exit_closed2 = mlx_xpm_file_to_image
@@ -172,5 +183,7 @@ void	ft_getsprites(t_data *data, char *mapname)
 		(data->mlx_ptr, EXIT_OPEN1, &data->x, &data->y);
 	data->exit_open2 = mlx_xpm_file_to_image
 		(data->mlx_ptr, EXIT_OPEN2, &data->x, &data->y);
+	data->bar = mlx_xpm_file_to_image
+		(data->mlx_ptr, BAR, &data->x, &data->y);
 	ft_initmap(data, mapname);
 }

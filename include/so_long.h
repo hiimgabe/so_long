@@ -64,7 +64,7 @@
 
 # define MLX_PTR_ERROR "ERROR : mlx_ptr failed.\n"
 # define MLX_WIN_PTR_ERROR "ERROR : win_ptr failed.\n"
-# define ARGUMENT_NUMBER_ERROR "Wrong number of arguments.\nTry again ex: ./so_long assets/maps/map1.ber\n"
+# define ARGUMENT_NUMBER_ERROR "Wrong number of arguments.\n"
 
 typedef struct s_data
 {
@@ -102,26 +102,25 @@ typedef struct s_data
 	void	*d1;
 	void	*d2;
 	void	*bar;
-	int	p_x;
-	int	p_y;
-	int	x;
-	int	y;
-	int	moves;
-	int	score;
-	int	fd;
-	int	e_x;
-	int	e_y;
-	int	columns;
-	int	lines;
-	int	player;
-	int	exit;
-	int	exit_state;
-	int	coin;
-	int	enemy;
+	int		p_x;
+	int		p_y;
+	int		x;
+	int		y;
+	int		moves;
+	int		score;
+	int		fd;
+	int		e_x;
+	int		e_y;
+	int		columns;
+	int		lines;
+	int		player;
+	int		exit;
+	int		exit_state;
+	int		coin;
+	int		enemy;
 	char	**map;
 	char	**map_check;
 }	t_data;
-
 
 // MAP
 int		ft_cntlines(t_data *data);
@@ -131,7 +130,6 @@ void	ft_getspritessecond(t_data *data, char *mapname);
 void	ft_getspritesthird(t_data *data, char *mapname);
 void	ft_initmap(t_data *data, char *mapname);
 void	ft_fill_window(t_data *data, int i, int j);
-
 void	ft_fill_map(t_data *data);
 void	ft_dupmap(t_data *data);
 void	ft_drawwall(t_data *data, int y, int x);
@@ -141,16 +139,16 @@ void	ft_initthird(t_data *data);
 
 // ANIMATION
 int		ft_animations(t_data *d);
-void    ft_animexitclosed(t_data *data);
-void    ft_animexitopen(t_data *data);
-void 	ft_animcoin(t_data *data);
+void	ft_animexitclosed(t_data *data);
+void	ft_animexitopen(t_data *data);
+void	ft_animcoin(t_data *data);
 void	ft_drawcoin(t_data *data, int k, int j, int i);
 void	ft_animexitclosetoopen(t_data *data);
 
 // ENEMY
-int		ft_moveenemy(t_data *data, int	y, int x, char key);
+int		ft_moveenemy(t_data *data, int y, int x, char key);
 void	ft_enemy(t_data *data);
-void	ft_movecheck(t_data *data, int	random, int	y, int x);
+void	ft_movecheck(t_data *data, int random, int y, int x);
 void	ft_enemysprite(t_data *data, int y, int x, char key);
 void	ft_enemyanim(t_data *data);
 
@@ -162,7 +160,9 @@ void	ft_playermovecheck(t_data *data, int y, int x, char key);
 void	ft_moves(t_data *data);
 
 // CLEAR
-int		ft_clear(t_data	*data);
+int		ft_destroy(t_data *data);
+void	ft_clearfirst(t_data	*data);
+void	ft_clearsecond(t_data	*data);
 void	ft_clear_map(t_data *data);
 void	ft_clear_map2(t_data *data);
 

@@ -74,7 +74,7 @@ int	ft_moveenemy(t_data *data, int y, int x, char key)
 	else if (data->map[y][x] == 'P')
 	{
 		printf("The enemy caught you! :( score: %d\n", data->score);
-		ft_clear(data);
+		ft_destroy(data);
 	}
 	return (0);
 }

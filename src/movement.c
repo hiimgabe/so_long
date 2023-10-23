@@ -12,12 +12,6 @@
 
 #include "so_long.h"
 
-void	ft_drawimg(t_data *data, void *img, int x, int y)
-{
-	mlx_put_image_to_window(data->mlx_ptr,
-		data->win_ptr, img, x * SIZE, y * SIZE);
-}
-
 void	ft_playermovecheck(t_data *data, int y, int x, char key)
 {
 	static int	state;
@@ -62,12 +56,12 @@ int	ft_moveplayer(t_data *data, int y, int x, char key)
 	else if (data->map[y][x] == 'E' && data->score == data->coin)
 	{
 		printf("Congratulations, you escaped in %d moves!\n", data->moves);
-		ft_clear(data);
+		ft_destroy(data);
 	}
 	else if (data->map[y][x] == 'M')
 	{
 		printf("You died, score: %d\n", data->score);
-		ft_clear(data);
+		ft_destroy(data);
 	}
 	return (0);
 }
@@ -90,7 +84,7 @@ int	handle_input(int keysym, t_data *data)
 
 	result = 0;
 	if (keysym == 65307)
-		ft_clear(data);
+		ft_destroy(data);
 	if (keysym == 119)
 		result = ft_moveplayer(data, data->p_y - 1, data->p_x, 'W');
 	if (keysym == 97)

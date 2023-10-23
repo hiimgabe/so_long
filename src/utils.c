@@ -76,3 +76,9 @@ void	ft_getexitcoords(t_data *data, int i, int j)
 	data->e_x = j;
 	data->e_y = i;
 }
+
+void	ft_drawimg(t_data *data, void *img, int x, int y)
+{
+	mlx_put_image_to_window(data->mlx_ptr,
+		data->win_ptr, img, x * SIZE, y * SIZE);
+}

@@ -32,7 +32,8 @@ int	main(int argc, char **argv)
 		}
 		ft_getspritesfirst(&data, argv[1]);
 		mlx_hook(data.win_ptr, KeyPress, KeyPressMask, handle_input, &data);
-		mlx_hook(data.win_ptr, DestroyNotify, ButtonPressMask, ft_clear, &data);
+		mlx_hook(data.win_ptr, DestroyNotify,
+			ButtonPressMask, ft_destroy, &data);
 		mlx_loop_hook(data.mlx_ptr, ft_animations, &data);
 		mlx_loop(data.mlx_ptr);
 	}

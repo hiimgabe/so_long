@@ -72,12 +72,11 @@ void	ft_fill_window(t_data *data, int i, int j)
 			else if (data->map[i][j] == '0')
 				ft_drawimg(data, data->floor, j, i);
 			else if (data->map[i][j] == 'C')
-				ft_drawimg(data, data->coin1, j, i);
+				ft_drawimg(data, data->coin4, j, i);
 			else if (data->map[i][j] == 'M')
 				ft_drawimg(data, data->enemy1, j, i);
 			else if (data->map[i][j] == 'E')
-				ft_drawimg(data, data->exit_closed1, j, i);
-			ft_drawimg(data, data->bar, j, data->lines);
+				ft_drawimg(data, data->exit_closed3, j, i);
 			j++;
 		}
 		i++;
@@ -98,7 +97,7 @@ void	ft_initmap(t_data *data, char *mapname)
 	data->map = ft_calloc(data->lines + 1, sizeof(char *));
 	ft_fill_map(data);
 	data->win_ptr = mlx_new_window(data->mlx_ptr,
-			ft_len(data->map[0]) * SIZE, data->lines * SIZE + 25, "so_long");
+			ft_len(data->map[0]) * SIZE, data->lines * SIZE, "so_long");
 	if (data->win_ptr == NULL)
 	{
 		free(data->win_ptr);

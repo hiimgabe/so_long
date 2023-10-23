@@ -14,28 +14,14 @@
 
 void	ft_playermovecheck(t_data *data, int y, int x, char key)
 {
-	static int	state;
-
-	if (state == 0)
-		state = 1;
-	else if (state == 1)
-		state = 0;
-	if (key == 'W' && state == 1)
+	if (key == 'W')
 		ft_drawimg(data, data->w1, x, y);
-	else if (key == 'W' && state == 0)
-		ft_drawimg(data, data->w2, x, y);
-	else if (key == 'A' && state == 1)
+	else if (key == 'A')
 		ft_drawimg(data, data->a1, x, y);
-	else if (key == 'A' && state == 0)
-		ft_drawimg(data, data->a2, x, y);
-	else if (key == 'S' && state == 1)
+	else if (key == 'S')
 		ft_drawimg(data, data->s1, x, y);
-	else if (key == 'S' && state == 0)
-		ft_drawimg(data, data->s2, x, y);
-	else if (key == 'D' && state == 1)
+	else if (key == 'D')
 		ft_drawimg(data, data->d1, x, y);
-	else if (key == 'D' && state == 0)
-		ft_drawimg(data, data->d2, x, y);
 }
 
 int	ft_moveplayer(t_data *data, int y, int x, char key)
@@ -66,18 +52,6 @@ int	ft_moveplayer(t_data *data, int y, int x, char key)
 	return (0);
 }
 
-void	ft_moves(t_data *data)
-{
-	char	*moves;
-
-	moves = ft_itoa(data->moves);
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->bar,
-		(data->columns / 2) * SIZE + 50, data->lines * SIZE);
-	mlx_string_put(data->mlx_ptr, data->win_ptr, (data->columns / 2)
-		* SIZE + 50, data->lines * SIZE + 15, 0xFFFFFF, moves);
-	free (moves);
-}
-
 int	handle_input(int keysym, t_data *data)
 {
 	int	result;
@@ -95,9 +69,7 @@ int	handle_input(int keysym, t_data *data)
 		result = ft_moveplayer(data, data->p_y, data->p_x + 1, 'D');
 	if (result == 1)
 	{
-		mlx_string_put(data->mlx_ptr, data->win_ptr, (data->columns / 2)
-			* SIZE, data->lines * SIZE + 15, 0xFFFFFF, "Moves: ");
-		ft_moves(data);
+		ft_printf("Moves: %d\n", data->moves);
 	}
 	return (0);
 }

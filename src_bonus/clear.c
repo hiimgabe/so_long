@@ -58,7 +58,8 @@ void	ft_clearsecond(t_data *data)
 	mlx_destroy_image(data->mlx_ptr, data->d2);
 	mlx_destroy_image(data->mlx_ptr, data->bar);
 	ft_clear_map(data);
-	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	if (data->win_ptr)
+		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	mlx_destroy_display(data->mlx_ptr);
 	free(data->mlx_ptr);
 }

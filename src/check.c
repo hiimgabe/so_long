@@ -16,19 +16,19 @@ void	ft_checkgamecomponents(t_data *data)
 {
 	if (data->player != 1)
 	{
-		ft_printf("ERROR: Wrong number of Player in the given map.\n");
+		ft_printf("%s", PLAYER_ERROR);
 		ft_destroy(data);
 		exit(0);
 	}
 	else if (data->exit != 1)
 	{
-		ft_printf("ERROR: Wrong number of Exit in the given map.\n");
+		ft_printf("%s", EXIT_ERROR);
 		ft_destroy(data);
 		exit(0);
 	}
 	else if (data->coin < 1)
 	{
-		ft_printf("ERROR: Wrong number of Collectibles in the given map.\n");
+		ft_printf("%s", COIN_ERROR);
 		ft_destroy(data);
 		exit(0);
 	}
@@ -81,7 +81,7 @@ void	ft_checkpath(t_data *data)
 	ft_dupmap(data);
 	if (ft_floodfill(data, data->map_check, data->p_x, data->p_y) != 1)
 	{
-		ft_printf("ERROR: Invalid map path.\n");
+		ft_printf("%s", PATH_ERROR);
 		ft_clear_map2(data);
 		ft_destroy(data);
 	}

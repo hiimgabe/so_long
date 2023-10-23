@@ -64,7 +64,16 @@
 
 # define MLX_PTR_ERROR "ERROR : mlx_ptr failed.\n"
 # define MLX_WIN_PTR_ERROR "ERROR : win_ptr failed.\n"
-# define ARGUMENT_NUMBER_ERROR "Wrong number of arguments.\n"
+# define ARGUMENT_NUMBER_ERROR "ERROR: Wrong number of arguments.\n"
+# define COLUMN_ERROR "ERROR: Not enough columns int the given map.\n"
+# define LINE_ERROR "ERROR: Not enough lines in the given map.\n"
+# define RECTANGLE_ERROR "ERROR: Given map isn't a rectangle.\n"
+# define CHARACTER_ERROR "ERROR: Invalid characters found on the map.\n"
+# define WALLS_ERROR "ERROR: Map walls are invalid.\n"
+# define PLAYER_ERROR "ERROR: Wrong number of \"Player(P)\" in the given map.\n"
+# define EXIT_ERROR "ERROR: Wrong number of \"Exit(E)\" in the given map.\n"
+# define COIN_ERROR "ERROR: Map needs at least 1 \"Collectibe(C)\".\n"
+# define PATH_ERROR "ERROR: Invalid map path.\n"
 
 typedef struct s_data
 {

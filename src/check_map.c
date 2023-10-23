@@ -16,7 +16,7 @@ void	ft_checkcolumns(t_data *data)
 {
 	if (data->columns < 3)
 	{
-		ft_printf("ERROR: Not enough columns int the given map.\n");
+		ft_printf("%s", COLUMN_ERROR);
 		ft_destroy(data);
 		exit(0);
 	}
@@ -26,7 +26,7 @@ void	ft_checklines(t_data *data)
 {
 	if (data->lines < 3)
 	{
-		ft_printf("ERROR: Not enough lines in the given map.\n");
+		ft_printf("%s", LINE_ERROR);
 		ft_destroy(data);
 		exit (0);
 	}
@@ -46,7 +46,7 @@ void	ft_checkrectangle(t_data *data)
 			j++;
 		if (j != data->columns)
 		{
-			ft_printf("ERROR: Given map isn't a rectangle.\n");
+			ft_printf("%s", RECTANGLE_ERROR);
 			ft_destroy(data);
 			exit (0);
 		}
@@ -68,12 +68,12 @@ void	ft_checkchars(t_data *data)
 		while (j < data->columns)
 		{
 			if (data->map[i][j] == '1' || data->map[i][j] == '0' ||
-				data->map[i][j] == 'P' || data->map[i][j] == 'M' ||
-				data->map[i][j] == 'E' || data->map[i][j] == 'C')
+				data->map[i][j] == 'P' || data->map[i][j] == 'E' ||
+				data->map[i][j] == 'C')
 				j++;
 			else
 			{
-				ft_printf("ERROR: Invalid characters found on the map.\n");
+				ft_printf("%s", CHARACTER_ERROR);
 				ft_destroy(data);
 			}
 		}
@@ -93,7 +93,7 @@ void	ft_checkwalls(t_data *data)
 			i++;
 		else
 		{
-			ft_printf("ERROR: Map walls are invalid.");
+			ft_printf("%s", WALLS_ERROR);
 			ft_destroy(data);
 		}
 	}
@@ -104,7 +104,7 @@ void	ft_checkwalls(t_data *data)
 			i++;
 		else
 		{
-			ft_printf("ERROR: Map walls are invalid.");
+			ft_printf("%s", WALLS_ERROR);
 			ft_destroy(data);
 		}
 	}

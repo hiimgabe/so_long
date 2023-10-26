@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: gamoreir <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/26 10:17:06 by gamoreir          #+#    #+#              #
-#    Updated: 2023/05/31 15:00:03 by gamoreir         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = so_long
 NAME_BONUS = so_long_bonus
 
@@ -25,7 +13,7 @@ OBJ_BONUS = ${SRC_BONUS:.c=.o}
 
 CC = cc
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 INCLUDE = -I include
 MAKE = make -C
 LIBFT_PATH = libft

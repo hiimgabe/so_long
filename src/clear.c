@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   clear.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gamoreir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gamoreir <gamoreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:44:47 by gamoreir          #+#    #+#             */
-/*   Updated: 2023/05/31 16:09:38 by gamoreir         ###   ########.fr       */
+/*   Updated: 2023/11/09 11:05:11 by gamoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	ft_clearfirst(t_data	*data)
 	mlx_destroy_image(data->mlx_ptr, data->wall6);
 	mlx_destroy_image(data->mlx_ptr, data->floor);
 	mlx_destroy_image(data->mlx_ptr, data->coin4);
+	mlx_destroy_image(data->mlx_ptr, data->enemy1);
 	mlx_destroy_image(data->mlx_ptr, data->exit_closed3);
 	mlx_destroy_image(data->mlx_ptr, data->w1);
 	mlx_destroy_image(data->mlx_ptr, data->a1);

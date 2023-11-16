@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gamoreir <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: gabe <gabe@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/12 10:18:50 by gamoreir          #+#    #+#              #
-#    Updated: 2023/05/26 10:32:31 by gamoreir         ###   ########.fr        #
+#    Updated: 2023/11/16 18:24:53 by gabe             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,19 +23,27 @@ OBJ = ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_strlen
       ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_striteri.o ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o ft_lstadd_back.o \
       ft_lstclear.o ft_lstdelone.o ft_lstiter.o ft_lstmap.o ft_printf.o ft_printf_functions.o get_next_line.o
 
+GREEN		= \033[38;5;47m
+YELLOW		= \033[38;5;226m
+RED			= \033[38;5;196m
+END 		= \033[0m
+
 %.o : %.c
-	$(CC) $(FLAGS) -c $< -o $@ -I $(INCLUDE)
+	@$(CC) $(FLAGS) -c $< -o $@ -I $(INCLUDE)
+	@echo "[$(GREEN)compiling$(END)]: $<"
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(AR) $(NAME) $^
+	@$(AR) $(NAME) $^
+	@echo "$(GREEN)libft created$(END)"
 
 clean:
-	$(RM) $(OBJ)
+	@$(RM) $(OBJ)
+	@echo "$(RED)cleaning objects$(END)"
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
+	@echo "$(RED)$(NAME) deleted$(END)"
 
 re: fclean all
-

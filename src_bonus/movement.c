@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gamoreir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gamoreir <gamoreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:44:47 by gamoreir          #+#    #+#             */
-/*   Updated: 2023/05/31 16:09:38 by gamoreir         ###   ########.fr       */
+/*   Updated: 2023/12/18 11:41:55 by gamoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,18 @@ void	ft_playermovecheck(t_data *data, int y, int x, char key)
 
 int	ft_moveplayer(t_data *data, int y, int x, char key)
 {
-	if (data->map[y][x] == '0' || data->map[y][x] == 'C')
+	if (data->map[y][x] == '0' || data->map[y][x] == 'C' || (data->map[y][x] == 'E' && !(data->score == data->coin)))
 	{
+		if (data->p_y == data->e_y && data->p_x == data->e_x)
+		{
+			ft_drawimg(data, data->floor, data->p_x, data->p_y);
+			ft_playermovecheck(data, y, x, key);
+			data->map[data->p_y][data->p_x] = 'E';
+			data->map[y][x] = 'P';
+			data->p_y = y;
+			data->p_x = x;
+			data->moves ++;
+		}
 		ft_drawimg(data, data->floor, data->p_x, data->p_y);
 		ft_playermovecheck(data, y, x, key);
 		if (data->map[y][x] == 'C')
@@ -53,10 +63,20 @@ int	ft_moveplayer(t_data *data, int y, int x, char key)
 		data->moves ++;
 		return (1);
 	}
-	else if (data->map[y][x] == 'E' && data->score == data->coin)
+	else if (data->map[y][x] == 'E')
 	{
-		printf("Congratulations, you escaped in %d moves!\n", data->moves);
-		ft_destroy(data);
+		if (data->score == data->coin)
+		{
+			printf("Congratulations, you escaped in %d moves!\n", data->moves);
+			ft_destroy(data);
+		}
+		ft_drawimg(data, data->floor, data->p_x, data->p_y);
+		ft_playermovecheck(data, y, x, key);
+		data->map[data->p_y][data->p_x] = '0';
+		data->map[y][x] = 'P';
+		data->p_y = y;
+		data->p_x = x;
+		data->moves ++;
 	}
 	else if (data->map[y][x] == 'M')
 	{
@@ -97,24 +117,23 @@ int	handle_input(int keysym, t_data *data)
 	{
 		mlx_string_put(data->mlx_ptr, data->win_ptr, (data->columns / 2)
 			* SIZE, data->lines * SIZE + 15, 0xFFFFFF, "Moves: ");
+		ft_printf("Move number: %d\nScore: %d out of %d\nKey:%d\n", data->moves, data->score, data->coin, keysym);
+		ft_printf("%s\n", data->map[0]);
+		ft_printf("%s\n", data->map[1]);
+		ft_printf("%s\n", data->map[2]);
+		ft_printf("%s\n", data->map[3]);
+		ft_printf("%s\n", data->map[4]);
+		ft_printf("%s\n", data->map[5]);
+		ft_printf("%s\n", data->map[6]);
+		ft_printf("%s\n", data->map[7]);
+		ft_printf("%s\n", data->map[8]);
+		ft_printf("%s\n", data->map[9]);
+		ft_printf("data->exit_state = %d\n", data->exit_state);
+		ft_printf("data->lines = %d\n", data->lines);
+		ft_printf("data->columns = %d\n", data->columns);
 		ft_moves(data);
 	}
 	return (0);
 }
 /*
-ft_printf("Move number: %d\nScore: %d out of %d\nKey:
- %d\n", data->moves, data->score, data->coin, keysym);
-ft_printf("%s\n", data->map[0]);
-ft_printf("%s\n", data->map[1]);
-ft_printf("%s\n", data->map[2]);
-ft_printf("%s\n", data->map[3]);
-ft_printf("%s\n", data->map[4]);
-ft_printf("%s\n", data->map[5]);
-ft_printf("%s\n", data->map[6]);
-ft_printf("%s\n", data->map[7]);
-ft_printf("%s\n", data->map[8]);
-ft_printf("%s\n", data->map[9]);
-ft_printf("data->exit_state = %d\n", data->exit_state);
-ft_printf("data->lines = %d\n", data->lines);
-		ft_printf("data->columns = %d\n", data->columns);
 */

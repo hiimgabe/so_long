@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   animations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gamoreir <gamoreir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gabe <gabe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:48:06 by gamoreir          #+#    #+#             */
-/*   Updated: 2023/12/18 11:23:10 by gamoreir         ###   ########.fr       */
+/*   Updated: 2023/12/20 12:47:12 by gabe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,24 @@
 int	ft_animations(t_data *data)
 {
 	static int	i;
+	static int	p_e = 0;
 
 	if (data->score == data->coin && data->exit_state == 0)
 		data->exit_state = 1;
+	if (data->p_x == data->e_x && data->p_y == data->e_y)
+		p_e = 1;
+	else
+		p_e = 0;
 	i++;
 	if (i == 1)
 		ft_animcoin(data);
 	else if (i == 2)
 		ft_enemy(data);
-	else if (i == 3 && data->exit_state == 0)
+	else if (i == 3 && data->exit_state == 0 && p_e == 0)
 		ft_animexitclosed(data);
 	else if (i == 3 && data->exit_state == 1)
 		ft_animexitclosetoopen(data);
-	else if (i == 3 && data->exit_state == 2)
+	else if (i == 3 && data->exit_state == 2 && p_e == 0)
 		ft_animexitopen(data);
 	else if (i > 3)
 		i = 0;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gamoreir <gamoreir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gabe <gabe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:44:47 by gamoreir          #+#    #+#             */
-/*   Updated: 2023/12/18 11:48:51 by gamoreir         ###   ########.fr       */
+/*   Updated: 2023/12/20 12:30:59 by gabe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,31 +24,35 @@ void	ft_playermovecheck(t_data *data, int y, int x, char key)
 		ft_drawimg(data, data->d1, x, y);
 }
 
-int	ft_moveplayer(t_data *data, int y, int x, char key)
+int	ft_moveplayer_helper(t_data *data, int y, int x, char key)
 {
-	if (data->map[y][x] == '0' || data->map[y][x] == 'C' || (data->map[y][x] == 'E' && !(data->score == data->coin)))
+	if (data->p_y == data->e_y && data->p_x == data->e_x)
 	{
-		if (data->p_y == data->e_y && data->p_x == data->e_x)
-		{
-			ft_drawimg(data, data->exit_closed3, data->p_x, data->p_y);
-			ft_playermovecheck(data, y, x, key);
-			data->map[data->p_y][data->p_x] = 'E';
-			data->map[y][x] = 'P';
-			data->p_y = y;
-			data->p_x = x;
-			data->moves ++;
-		}
-		ft_drawimg(data, data->floor, data->p_x, data->p_y);
+		ft_drawimg(data, data->exit_closed3, data->p_x, data->p_y);
 		ft_playermovecheck(data, y, x, key);
-		if (data->map[y][x] == 'C')
-			data->score ++;
-		data->map[data->p_y][data->p_x] = '0';
+		data->map[data->p_y][data->p_x] = 'E';
 		data->map[y][x] = 'P';
 		data->p_y = y;
 		data->p_x = x;
 		data->moves ++;
-		return (1);
 	}
+	ft_drawimg(data, data->floor, data->p_x, data->p_y);
+	ft_playermovecheck(data, y, x, key);
+	if (data->map[y][x] == 'C')
+		data->score ++;
+	data->map[data->p_y][data->p_x] = '0';
+	data->map[y][x] = 'P';
+	data->p_y = y;
+	data->p_x = x;
+	data->moves ++;
+	return (1);
+}
+
+int	ft_moveplayer(t_data *data, int y, int x, char key)
+{
+	if (data->map[y][x] == '0' || data->map[y][x] == 'C'
+		|| (data->map[y][x] == 'E' && !(data->score == data->coin)))
+		return (ft_moveplayer_helper(data, y, x, key));
 	else if (data->map[y][x] == 'E')
 	{
 		if (data->score == data->coin)

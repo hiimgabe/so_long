@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gamoreir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gabe <gabe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 10:46:38 by gamoreir          #+#    #+#             */
-/*   Updated: 2023/06/02 16:23:38 by gamoreir         ###   ########.fr       */
+/*   Updated: 2024/01/05 16:59:34 by gabe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@
 # define EXIT_ERROR "ERROR: Wrong number of \"Exit(E)\" in the given map.\n"
 # define COIN_ERROR "ERROR: Map needs at least 1 \"Collectibe(C)\".\n"
 # define PATH_ERROR "ERROR: Invalid map path.\n"
+# define FD_ERROR "ERROR: Invalid fd.\n"
+# define EMPTY_MAP_ERROR "ERROR: Empty map.\n"
 
 typedef struct s_data
 {
@@ -185,6 +187,8 @@ void	ft_checkwalls(t_data *data);
 void	ft_getexitcoords(t_data *data, int i, int j);
 void	ft_checkgamecomponents(t_data *data);
 void	ft_checkpath(t_data *data);
+void	ft_check_fd(t_data *data);
+void	ft_check_empty_map(t_data *data, int i);
 
 void	ft_drawimg(t_data *data, void *img, int x, int y);
 

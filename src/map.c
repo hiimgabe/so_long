@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gamoreir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gabe <gabe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:48:06 by gamoreir          #+#    #+#             */
-/*   Updated: 2023/06/02 16:21:58 by gamoreir         ###   ########.fr       */
+/*   Updated: 2024/01/05 16:44:34 by gabe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	ft_check_empty_map(t_data *data, int i)
+{
+	if (i == 0)
+	{
+		ft_printf(EMPTY_MAP_ERROR);
+		ft_destroy(data);
+	}
+}
 
 void	ft_fill_map(t_data *data)
 {
@@ -30,6 +39,7 @@ void	ft_fill_map(t_data *data)
 		free(str);
 		i++;
 	}
+	ft_check_empty_map(data, i);
 	data->columns = ft_strlen(data->map[0]);
 	ft_checklines(data);
 	ft_checkrectangle(data);
@@ -94,6 +104,7 @@ void	ft_initmap(t_data *data, char *mapname)
 	data->lines = ft_cntlines(data);
 	close(data->fd);
 	data->fd = open(mapname, O_RDONLY);
+	ft_check_fd(data);
 	data->map = ft_calloc(data->lines + 1, sizeof(char *));
 	ft_fill_map(data);
 	data->win_ptr = mlx_new_window(data->mlx_ptr,

@@ -6,7 +6,7 @@
 /*   By: gabe <gabe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:44:47 by gamoreir          #+#    #+#             */
-/*   Updated: 2023/12/20 12:30:59 by gabe             ###   ########.fr       */
+/*   Updated: 2024/01/05 16:58:41 by gabe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	ft_playermovecheck(t_data *data, int y, int x, char key)
 
 int	ft_moveplayer_helper(t_data *data, int y, int x, char key)
 {
+	if (data->map[y][x] == 'C')
+		data->score ++;
 	if (data->p_y == data->e_y && data->p_x == data->e_x)
 	{
 		ft_drawimg(data, data->exit_closed3, data->p_x, data->p_y);
@@ -38,8 +40,6 @@ int	ft_moveplayer_helper(t_data *data, int y, int x, char key)
 	}
 	ft_drawimg(data, data->floor, data->p_x, data->p_y);
 	ft_playermovecheck(data, y, x, key);
-	if (data->map[y][x] == 'C')
-		data->score ++;
 	data->map[data->p_y][data->p_x] = '0';
 	data->map[y][x] = 'P';
 	data->p_y = y;
@@ -99,18 +99,13 @@ int	handle_input(int keysym, t_data *data)
 }
 /*
 ft_printf("Move number: %d\nScore: %d out of %d\nKey:
- %d\n", data->moves, data->score, data->coin, keysym);
+%d\n", data->moves, data->score, data->coin, keysym);
 ft_printf("%s\n", data->map[0]);
 ft_printf("%s\n", data->map[1]);
 ft_printf("%s\n", data->map[2]);
 ft_printf("%s\n", data->map[3]);
 ft_printf("%s\n", data->map[4]);
-ft_printf("%s\n", data->map[5]);
-ft_printf("%s\n", data->map[6]);
-ft_printf("%s\n", data->map[7]);
-ft_printf("%s\n", data->map[8]);
-ft_printf("%s\n", data->map[9]);
 ft_printf("data->exit_state = %d\n", data->exit_state);
 ft_printf("data->lines = %d\n", data->lines);
-		ft_printf("data->columns = %d\n", data->columns);
+ft_printf("data->columns = %d\n", data->columns);
 */

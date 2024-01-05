@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gamoreir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gabe <gabe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:48:06 by gamoreir          #+#    #+#             */
-/*   Updated: 2023/06/02 16:21:58 by gamoreir         ###   ########.fr       */
+/*   Updated: 2024/01/05 16:59:07 by gabe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int	ft_floodfill(t_data *data, char **map, int x, int y)
 	{
 		e++;
 		map[y][x] = 'X';
-		return (0);
 	}
 	if (map[y][x] == 'C')
 		c++;
@@ -87,4 +86,13 @@ void	ft_checkpath(t_data *data)
 	}
 	else
 		ft_clear_map2(data);
+}
+
+void	ft_check_fd(t_data *data)
+{
+	if (data->fd < 0)
+	{
+		ft_printf(FD_ERROR);
+		ft_destroy(data);
+	}
 }

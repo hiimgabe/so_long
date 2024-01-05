@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   clear.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gamoreir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gabe <gabe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:44:47 by gamoreir          #+#    #+#             */
-/*   Updated: 2023/05/31 16:09:38 by gamoreir         ###   ########.fr       */
+/*   Updated: 2024/01/05 16:31:46 by gabe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ void	ft_clearsecond(t_data *data)
 	mlx_destroy_image(data->mlx_ptr, data->d1);
 	mlx_destroy_image(data->mlx_ptr, data->d2);
 	mlx_destroy_image(data->mlx_ptr, data->bar);
-	ft_clear_map(data);
+	if (data->fd > 0)
+		ft_clear_map(data);
 	if (data->win_ptr)
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	mlx_destroy_display(data->mlx_ptr);

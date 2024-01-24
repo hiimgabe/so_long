@@ -2,6 +2,7 @@
 
 ## **About**
 Project from Rank 02 of 42 Porto Common Core. It's about making your "own" 2D game.
+Grade : 125/100
 
 ## **Mandatory**
 Get every collectable and escape.
